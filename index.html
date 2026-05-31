@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claude — Build something beautiful</title>
+  <meta name="description" content="Claude by Anthropic. A calm, capable AI to think, write, reason, and create alongside you." />
+  <meta name="theme-color" content="#FAF9F5" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1A1A18" media="(prefers-color-scheme: dark)" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Claude — Build something beautiful" />
+  <meta property="og:description" content="A calm, capable AI to think, write, reason, and create alongside you." />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Inline SVG favicon: the Anthropic spark -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23D97757'/%3E%3Cg fill='%23FAF9F5'%3E%3Crect x='46' y='14' width='8' height='72' rx='4'/%3E%3Crect x='46' y='14' width='8' height='72' rx='4' transform='rotate(60 50 50)'/%3E%3Crect x='46' y='14' width='8' height='72' rx='4' transform='rotate(120 50 50)'/%3E%3C/g%3E%3C/svg%3E" />
+
+  <style>
+    /* ---------- Design tokens ---------- */
+    :root {
+      --bg: #FAF9F5;            /* Anthropic ivory */
+      --bg-tint: #F1EADF;       /* warm wash for the radial glow */
+      --ink: #1A1A18;           /* near-black text (~16:1 on ivory) */
+      --ink-soft: #57544D;      /* muted body text (~6.5:1 on ivory) */
+      --accent: #D97757;        /* Claude coral — decorative only */
+      --accent-text: #BD5D3A;   /* AA-safe coral for text on ivory (~4.1:1) */
+      --accent-deep: #A84B2C;   /* darker coral for hover */
+      --line: rgba(26, 26, 24, 0.12);
+      --focus: #1A1A18;
+
+      --radius: 999px;
+      --maxw: 44rem;
+
+      --font-display: Georgia, "Times New Roman", "Songti SC", serif;
+      --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1A1A18;
+        --bg-tint: #2A2722;
+        --ink: #F5F3EC;
+        --ink-soft: #B6B2A8;
+        --accent: #E59070;
+        --accent-text: #E59070;  /* light coral on dark ground (high contrast) */
+        --accent-deep: #F0A688;
+        --line: rgba(245, 243, 236, 0.16);
+        --focus: #F5F3EC;
+      }
+    }
+
+    /* ---------- Reset / base ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      font-family: var(--font-ui);
+      color: var(--ink);
+      background-color: var(--bg);
+      background-image: radial-gradient(120% 90% at 50% -10%, var(--bg-tint) 0%, transparent 60%);
+      background-repeat: no-repeat;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      line-height: 1.6;
+    }
+
+    /* Accessible skip link */
+    .skip {
+      position: absolute;
+      left: 50%;
+      top: -4rem;
+      transform: translateX(-50%);
+      background: var(--ink);
+      color: var(--bg);
+      padding: 0.6rem 1rem;
+      border-radius: 0.5rem;
+      z-index: 10;
+      text-decoration: none;
+      transition: top 0.2s var(--ease);
+    }
+    .skip:focus { top: 0.75rem; }
+
+    /* Visible focus for keyboard users only */
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ---------- Layout ---------- */
+    .shell {
+      width: 100%;
+      max-width: 64rem;
+      margin: 0 auto;
+      padding: clamp(1.25rem, 4vw, 2.25rem);
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+    }
+
+    /* Brand mark */
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      font-size: 1.05rem;
+      color: var(--ink);
+      text-decoration: none;
+      width: max-content;
+    }
+    .brand svg { display: block; }
+    .brand:hover .spark { transform: rotate(90deg); }
+    .spark {
+      fill: var(--accent);   /* SVG colour must come from CSS, not a var() attribute */
+      transition: transform 0.6s var(--ease);
+      transform-origin: center;
+    }
+
+    /* Hero */
+    main {
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: clamp(2rem, 8vh, 5rem) 0;
+    }
+    .hero { max-width: var(--maxw); }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin: 0 0 1.25rem;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(2.75rem, 9vw, 5.25rem);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      margin: 0;
+      color: var(--ink);
+      text-wrap: balance;
+    }
+    h1 .accent { color: var(--accent-text); font-style: italic; }
+
+    .lede {
+      font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+      color: var(--ink-soft);
+      max-width: 32rem;
+      margin: 1.5rem auto 0;
+      text-wrap: pretty;
+    }
+
+    /* Actions */
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      justify-content: center;
+      margin-top: 2.25rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font: inherit;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.15s var(--ease), background-color 0.2s var(--ease),
+                  border-color 0.2s var(--ease), color 0.2s var(--ease);
+    }
+    .btn-primary { background: var(--ink); color: var(--bg); }
+    .btn-primary:hover { background: var(--accent-deep); }
+    .btn-primary .arrow { transition: transform 0.2s var(--ease); }
+    .btn-primary:hover .arrow { transform: translateX(3px); }
+
+    .btn-secondary { background: transparent; color: var(--ink); border-color: var(--line); }
+    .btn-secondary:hover { border-color: var(--ink); }
+    .btn:active { transform: translateY(1px); }
+
+    /* Footer */
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+      border-top: 1px solid var(--line);
+      padding-top: 1.25rem;
+      margin-top: auto;
+    }
+    footer nav { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+    footer a { color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* ---------- Entrance animation (progressive enhancement) ---------- */
+    .reveal { opacity: 0; transform: translateY(12px); }
+    .is-ready .reveal { animation: rise 0.8s var(--ease) forwards; }
+    .is-ready .reveal:nth-child(1) { animation-delay: 0.05s; }
+    .is-ready .reveal:nth-child(2) { animation-delay: 0.15s; }
+    .is-ready .reveal:nth-child(3) { animation-delay: 0.25s; }
+    .is-ready .reveal:nth-child(4) { animation-delay: 0.35s; }
+    @keyframes rise { to { opacity: 1; transform: none; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+
+  <!-- If JavaScript never runs, content must still be fully visible. -->
+  <noscript>
+    <style>.reveal { opacity: 1 !important; transform: none !important; }</style>
+  </noscript>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="shell">
+    <header>
+      <a class="brand" href="/" aria-label="Claude home">
+        <svg class="spark" width="22" height="22" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+          <rect x="46" y="12" width="8" height="76" rx="4" />
+          <rect x="46" y="12" width="8" height="76" rx="4" transform="rotate(60 50 50)" />
+          <rect x="46" y="12" width="8" height="76" rx="4" transform="rotate(120 50 50)" />
+        </svg>
+        <span>Claude</span>
+      </a>
+    </header>
+
+    <main id="main">
+      <div class="hero">
+        <p class="eyebrow reveal">Anthropic</p>
+        <h1 class="reveal">Build something <span class="accent">beautiful</span></h1>
+        <p class="lede reveal">
+          A calm, capable AI that thinks alongside you — to write, reason, design,
+          and create work you're proud of.
+        </p>
+        <div class="actions reveal">
+          <a class="btn btn-primary" href="https://claude.ai/new">
+            Start building
+            <span class="arrow" aria-hidden="true">&rarr;</span>
+          </a>
+          <a class="btn btn-secondary" href="https://www.anthropic.com/claude">
+            Learn more
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <span>&copy; 2026 Anthropic</span>
+      <nav aria-label="Footer">
+        <a href="https://www.anthropic.com/">Anthropic</a>
+        <a href="https://docs.anthropic.com/">Docs</a>
+        <a href="https://www.anthropic.com/legal/privacy">Privacy</a>
+      </nav>
+    </footer>
+  </div>
+
+  <script>
+    // Trigger entrance animation only after first paint so it never blocks content.
+    requestAnimationFrame(function () {
+      document.body.classList.add('is-ready');
+    });
+  </script>
+</body>
+</html>
