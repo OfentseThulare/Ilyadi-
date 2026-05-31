@@ -1,295 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Claude — Build something beautiful</title>
-  <meta name="description" content="Claude by Anthropic. A calm, capable AI to think, write, reason, and create alongside you." />
-  <meta name="theme-color" content="#FAF9F5" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#1A1A18" media="(prefers-color-scheme: dark)" />
-  <meta name="color-scheme" content="light dark" />
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
-
-  <!-- Social -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Claude — Build something beautiful" />
-  <meta property="og:description" content="A calm, capable AI to think, write, reason, and create alongside you." />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Inline SVG favicon: the Anthropic spark -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23D97757'/%3E%3Cg fill='%23FAF9F5'%3E%3Crect x='46' y='14' width='8' height='72' rx='4'/%3E%3Crect x='46' y='14' width='8' height='72' rx='4' transform='rotate(60 50 50)'/%3E%3Crect x='46' y='14' width='8' height='72' rx='4' transform='rotate(120 50 50)'/%3E%3C/g%3E%3C/svg%3E" />
-
-  <style>
-    /* ---------- Design tokens ---------- */
-    :root {
-      --bg: #FAF9F5;            /* Anthropic ivory */
-      --bg-tint: #F1EADF;       /* warm wash for the radial glow */
-      --ink: #1A1A18;           /* near-black text (~16:1 on ivory) */
-      --ink-soft: #57544D;      /* muted body text (~6.5:1 on ivory) */
-      --accent: #D97757;        /* Claude coral — decorative only */
-      --accent-text: #BD5D3A;   /* AA-safe coral for text on ivory (~4.1:1) */
-      --accent-deep: #A84B2C;   /* darker coral for hover */
-      --line: rgba(26, 26, 24, 0.12);
-      --focus: #1A1A18;
-
-      --radius: 999px;
-      --maxw: 44rem;
-
-      --font-display: Georgia, "Times New Roman", "Songti SC", serif;
-      --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-
-      --ease: cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #1A1A18;
-        --bg-tint: #2A2722;
-        --ink: #F5F3EC;
-        --ink-soft: #B6B2A8;
-        --accent: #E59070;
-        --accent-text: #E59070;  /* light coral on dark ground (high contrast) */
-        --accent-deep: #F0A688;
-        --line: rgba(245, 243, 236, 0.16);
-        --focus: #F5F3EC;
-      }
-    }
-
-    /* ---------- Reset / base ---------- */
-    *, *::before, *::after { box-sizing: border-box; }
-    html { -webkit-text-size-adjust: 100%; }
-    body {
-      margin: 0;
-      min-height: 100svh;
-      display: flex;
-      flex-direction: column;
-      font-family: var(--font-ui);
-      color: var(--ink);
-      background-color: var(--bg);
-      background-image: radial-gradient(120% 90% at 50% -10%, var(--bg-tint) 0%, transparent 60%);
-      background-repeat: no-repeat;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      line-height: 1.6;
-    }
-
-    /* Accessible skip link */
-    .skip {
-      position: absolute;
-      left: 50%;
-      top: -4rem;
-      transform: translateX(-50%);
-      background: var(--ink);
-      color: var(--bg);
-      padding: 0.6rem 1rem;
-      border-radius: 0.5rem;
-      z-index: 10;
-      text-decoration: none;
-      transition: top 0.2s var(--ease);
-    }
-    .skip:focus { top: 0.75rem; }
-
-    /* Visible focus for keyboard users only */
-    :focus-visible {
-      outline: 2px solid var(--focus);
-      outline-offset: 3px;
-      border-radius: 4px;
-    }
-
-    /* ---------- Layout ---------- */
-    .shell {
-      width: 100%;
-      max-width: 64rem;
-      margin: 0 auto;
-      padding: clamp(1.25rem, 4vw, 2.25rem);
-      display: flex;
-      flex-direction: column;
-      flex: 1 1 auto;
-    }
-
-    /* Brand mark */
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      font-size: 1.05rem;
-      color: var(--ink);
-      text-decoration: none;
-      width: max-content;
-    }
-    .brand svg { display: block; }
-    .brand:hover .spark { transform: rotate(90deg); }
-    .spark {
-      fill: var(--accent);   /* SVG colour must come from CSS, not a var() attribute */
-      transition: transform 0.6s var(--ease);
-      transform-origin: center;
-    }
-
-    /* Hero */
-    main {
-      flex: 1 1 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: clamp(2rem, 8vh, 5rem) 0;
-    }
-    .hero { max-width: var(--maxw); }
-
-    .eyebrow {
-      display: inline-block;
-      font-size: 0.8rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      margin: 0 0 1.25rem;
-    }
-
-    h1 {
-      font-family: var(--font-display);
-      font-weight: 400;
-      font-size: clamp(2.75rem, 9vw, 5.25rem);
-      line-height: 1.04;
-      letter-spacing: -0.02em;
-      margin: 0;
-      color: var(--ink);
-      text-wrap: balance;
-    }
-    h1 .accent { color: var(--accent-text); font-style: italic; }
-
-    .lede {
-      font-size: clamp(1.05rem, 2.2vw, 1.3rem);
-      color: var(--ink-soft);
-      max-width: 32rem;
-      margin: 1.5rem auto 0;
-      text-wrap: pretty;
-    }
-
-    /* Actions */
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.85rem;
-      justify-content: center;
-      margin-top: 2.25rem;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font: inherit;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.8rem 1.5rem;
-      border-radius: var(--radius);
-      border: 1px solid transparent;
-      cursor: pointer;
-      text-decoration: none;
-      transition: transform 0.15s var(--ease), background-color 0.2s var(--ease),
-                  border-color 0.2s var(--ease), color 0.2s var(--ease);
-    }
-    .btn-primary { background: var(--ink); color: var(--bg); }
-    .btn-primary:hover { background: var(--accent-deep); }
-    .btn-primary .arrow { transition: transform 0.2s var(--ease); }
-    .btn-primary:hover .arrow { transform: translateX(3px); }
-
-    .btn-secondary { background: transparent; color: var(--ink); border-color: var(--line); }
-    .btn-secondary:hover { border-color: var(--ink); }
-    .btn:active { transform: translateY(1px); }
-
-    /* Footer */
-    footer {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 1.5rem;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.85rem;
-      color: var(--ink-soft);
-      border-top: 1px solid var(--line);
-      padding-top: 1.25rem;
-      margin-top: auto;
-    }
-    footer nav { display: flex; flex-wrap: wrap; gap: 1.25rem; }
-    footer a { color: var(--ink-soft); text-decoration: none; }
-    footer a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
-
-    /* ---------- Entrance animation (progressive enhancement) ---------- */
-    .reveal { opacity: 0; transform: translateY(12px); }
-    .is-ready .reveal { animation: rise 0.8s var(--ease) forwards; }
-    .is-ready .reveal:nth-child(1) { animation-delay: 0.05s; }
-    .is-ready .reveal:nth-child(2) { animation-delay: 0.15s; }
-    .is-ready .reveal:nth-child(3) { animation-delay: 0.25s; }
-    .is-ready .reveal:nth-child(4) { animation-delay: 0.35s; }
-    @keyframes rise { to { opacity: 1; transform: none; } }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.001ms !important;
-      }
-      .reveal { opacity: 1; transform: none; }
-    }
-  </style>
-
-  <!-- If JavaScript never runs, content must still be fully visible. -->
-  <noscript>
-    <style>.reveal { opacity: 1 !important; transform: none !important; }</style>
-  </noscript>
-</head>
-<body>
-  <a class="skip" href="#main">Skip to content</a>
-
-  <div class="shell">
-    <header>
-      <a class="brand" href="/" aria-label="Claude home">
-        <svg class="spark" width="22" height="22" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
-          <rect x="46" y="12" width="8" height="76" rx="4" />
-          <rect x="46" y="12" width="8" height="76" rx="4" transform="rotate(60 50 50)" />
-          <rect x="46" y="12" width="8" height="76" rx="4" transform="rotate(120 50 50)" />
-        </svg>
-        <span>Claude</span>
-      </a>
-    </header>
-
-    <main id="main">
-      <div class="hero">
-        <p class="eyebrow reveal">Anthropic</p>
-        <h1 class="reveal">Build something <span class="accent">beautiful</span></h1>
-        <p class="lede reveal">
-          A calm, capable AI that thinks alongside you — to write, reason, design,
-          and create work you're proud of.
-        </p>
-        <div class="actions reveal">
-          <a class="btn btn-primary" href="https://claude.ai/new">
-            Start building
-            <span class="arrow" aria-hidden="true">&rarr;</span>
-          </a>
-          <a class="btn btn-secondary" href="https://www.anthropic.com/claude">
-            Learn more
-          </a>
-        </div>
-      </div>
-    </main>
-
-    <footer>
-      <span>&copy; 2026 Anthropic</span>
-      <nav aria-label="Footer">
-        <a href="https://www.anthropic.com/">Anthropic</a>
-        <a href="https://docs.anthropic.com/">Docs</a>
-        <a href="https://www.anthropic.com/legal/privacy">Privacy</a>
-      </nav>
-    </footer>
+<html lang="en"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Home | Iyadi Planning Solutions | Reaching New Heights</title>
+<meta name="description" content="Level 1 B-BBEE town planning, architecture and construction in Ladysmith. Eleven registered specialists, seven certifications, every approval handled."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="mark" viewBox="0 0 120 96">
+  <path d="M8 64C22 34 46 22 60 22C76 22 100 36 112 64" fill="none" stroke="#2b7a2b" stroke-width="7" stroke-linecap="round"/>
+  <path d="M22 75C32 53 48 43 60 43C74 43 90 53 99 75" fill="none" stroke="#37a437" stroke-width="5" stroke-linecap="round" opacity=".5"/>
+  <rect x="42" y="54" width="12" height="28" fill="#2b7a2b"/>
+  <rect x="56" y="42" width="14" height="40" fill="#c9a327"/>
+  <rect x="72" y="48" width="11" height="34" fill="#c9a327"/>
+  <rect x="61" y="30" width="4" height="52" fill="#c9a327"/>
+  <rect x="33" y="82" width="62" height="4" rx="2" fill="#2b7a2b"/>
+</symbol>
+<symbol id="mark-light" viewBox="0 0 120 96">
+  <path d="M8 64C22 34 46 22 60 22C76 22 100 36 112 64" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+  <path d="M22 75C32 53 48 43 60 43C74 43 90 53 99 75" fill="none" stroke="#e3c265" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+  <rect x="42" y="54" width="12" height="28" fill="#ffffff"/>
+  <rect x="56" y="42" width="14" height="40" fill="#e3c265"/>
+  <rect x="72" y="48" width="11" height="34" fill="#e3c265"/>
+  <rect x="61" y="30" width="4" height="52" fill="#e3c265"/>
+  <rect x="33" y="82" width="62" height="4" rx="2" fill="#ffffff"/>
+</symbol>
+</defs></svg>
+<div class="preloader" id="preloader"><div class="pre-inner">
+  <div class="pre-mark"><img src="brand/iyadi-logo.png" alt="Iyadi Planning Solutions"/></div>
+  <div class="pre-word" id="preWord">IYADI PLANNING SOLUTIONS</div>
+  <div class="pre-bar-track"><div class="pre-bar" id="preBar"></div></div>
+  <div class="pre-count" id="preCount">000</div>
+</div></div>
+<div class="curtain" id="curtain"><span></span><span></span><span></span><span></span><span></span></div>
+<div class="page-fade" id="pageFade"></div>
+<div class="cursor" id="cursor"></div><div class="cursor-dot" id="cursorDot"></div>
+<div class="scroll-prog" id="scrollProg"></div>
+<header class="nav" id="nav"><div class="wrap">
+  <a href="index.html" class="brand" data-cursor>
+    <img class="mark" src="brand/iyadi-logo.png" alt="Iyadi Planning Solutions logo"/>
+    <span class="bt"><b>IYADI</b><small>Planning Solutions</small></span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a>
+    <a href="certifications.html">Certifications</a><a href="why-choose-us.html">Why Us</a><a href="going-green.html">Going Green</a>
+  </nav>
+  <a href="contact.html" class="nav-cta mag" data-cursor><span class="dot"></span>Contact Us</a>
+  <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span></button>
+</div></header>
+<nav class="menu" id="menu">
+  <a href="index.html"><span class="n">01</span>Home</a><a href="about.html"><span class="n">02</span>About</a>
+  <a href="services.html"><span class="n">03</span>Services</a><a href="certifications.html"><span class="n">04</span>Certifications</a>
+  <a href="why-choose-us.html"><span class="n">05</span>Why Us</a><a href="going-green.html"><span class="n">06</span>Going Green</a>
+  <a href="contact.html"><span class="n">07</span>Contact</a>
+  <div class="menu-foot"><span>036 004 0024</span><span>Ladysmith, KZN</span><span>B-BBEE LEVEL 1</span></div>
+</nav><main>
+<section class="hero" id="hero">
+  <div class="hero-photo"><img data-parallax="0.12" data-base="1.12" src="brand/photo-city.jpg" alt="Aerial view of an urban development"/></div>
+  <div class="hero-skyline" id="heroSkyline" aria-hidden="true"></div>
+  <div class="wrap hero-content">
+    <p class="eyebrow" data-reveal="fade">Town Planning &middot; Architecture &middot; Construction</p>
+    <h1 class="kinetic" data-split style="margin-top:16px">Reaching new<br>heights for<br><span class="gold">KwaZulu-Natal.</span></h1>
+    <div class="hero-sub">
+      <p class="lead" data-reveal data-delay style="--d:.2s">A Level 1 B-BBEE town planning and architectural firm in Ladysmith. Eleven registered specialists take your development from land-use approval to construction completion.</p>
+      <div style="display:flex;gap:34px" data-reveal data-delay><div><b style="font-family:var(--font-display);font-size:1.8rem;display:block;line-height:1;color:var(--green-deep)">2021</b><span style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)">Founded</span></div><div><b style="font-family:var(--font-display);font-size:1.8rem;display:block;line-height:1;color:var(--green-deep)">11</b><span style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)">Specialists</span></div><div><b style="font-family:var(--font-display);font-size:1.8rem;display:block;line-height:1;color:var(--green-deep)">L1</b><span style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)">B-BBEE</span></div></div>
+    </div>
+    <div class="hero-cta-row" data-reveal data-delay style="--d:.45s">
+      <a href="services.html" class="btn btn-solid mag" data-cursor>Explore our services <svg class="arr" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="about.html" class="btn btn-ghost mag" data-cursor>Meet our team</a>
+    </div>
   </div>
+  <div class="scroll-cue"><span class="ln"></span>Scroll to explore</div>
+</section>
+<div class="marquee green" data-marquee data-speed="0.6"><div class="marquee-track"><span class="it">Township Design<span class="star">&#10038;</span>Strategic Planning<span class="star">&#10038;</span>Property Development<span class="star">&#10038;</span>Project Management<span class="star">&#10038;</span>Due Diligence<span class="star">&#10038;</span>Economic Development<span class="star">&#10038;</span></span></div></div>
+<section class="block" data-counter><div class="wrap">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,80px);align-items:center">
+    <div data-reveal="left"><div class="stats-grid">
+      <div class="stat"><div class="num"><span data-count="2021" data-plain>2021</span></div><div class="lbl">Year founded</div><div class="barline"><i data-bar="100"></i></div></div>
+      <div class="stat"><div class="num"><span data-count="11">0</span></div><div class="lbl">Registered specialists</div><div class="barline"><i data-bar="84"></i></div></div>
+      <div class="stat"><div class="num"><span data-count="7">0</span></div><div class="lbl">Certification bodies</div><div class="barline"><i data-bar="70"></i></div></div>
+      <div class="stat"><div class="num">L<span data-count="1">0</span></div><div class="lbl">B-BBEE status</div><div class="barline"><i data-bar="100"></i></div></div>
+    </div></div>
+    <div data-reveal="right"><p class="eyebrow" data-reveal="fade">Who we are</p>
+      <h2 class="section-title" style="margin-top:16px;font-size:clamp(2rem,4.4vw,3.4rem)">We turn complex approvals into built reality.</h2>
+      <p style="color:var(--ink-2);margin-top:20px;font-size:1.06rem">Founded in 2021 by registered town planner Mongezi Shabangu, Iyadi brings planners, surveyors, engineers and environmental specialists under one roof. Your development moves from concept to completion without the handovers that stall projects.</p>
+      <a href="about.html" class="btn btn-green mag" data-cursor style="margin-top:26px">Meet the specialists <svg class="arr" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+  </div>
+</div></section>
+<section class="block" style="background:var(--sage)"><div class="wrap">
+  <div class="block-head split"><div><p class="eyebrow" data-reveal="fade">What we do</p><h2 class="section-title" data-reveal>Built for every stage.</h2></div>
+  <p class="lead" data-reveal data-delay style="--d:.15s">Four of eight integrated disciplines. One accountable team across the whole development lifecycle.</p></div>
+  <div class="vmv-grid">
+    
+    <div class="tilt" data-tilt data-reveal data-delay style="--d:0ms"><div class="vcard"><div class="shine"></div>
+      <span class="vnum">01</span><h3 style="margin-top:auto;font-size:1.5rem">Township Design &amp; Development</h3><p>Rezoning, subdivision and township establishment packaged to win municipal approval.</p></div></div>
+    <div class="tilt" data-tilt data-reveal data-delay style="--d:100ms"><div class="vcard"><div class="shine"></div>
+      <span class="vnum">02</span><h3 style="margin-top:auto;font-size:1.5rem">Strategic &amp; Policy Planning</h3><p>Spatial frameworks and precinct policies that align your project with the municipal IDP.</p></div></div>
+    <div class="tilt" data-tilt data-reveal data-delay style="--d:200ms"><div class="vcard"><div class="shine"></div>
+      <span class="vnum">03</span><h3 style="margin-top:auto;font-size:1.5rem">Project Management</h3><p>One team coordinating every discipline, from inception to handover.</p></div></div>
+    <div class="tilt" data-tilt data-reveal data-delay style="--d:300ms"><div class="vcard"><div class="shine"></div>
+      <span class="vnum">04</span><h3 style="margin-top:auto;font-size:1.5rem">Economic Development</h3><p>Viability assessments and financial structuring that prove a project before you fund it.</p></div></div>
+  </div>
+  <div data-reveal style="margin-top:40px"><a href="services.html" class="btn btn-solid mag" data-cursor>View all services <svg class="arr" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+</div></section>
+<div class="marquee gold" data-marquee data-speed="-0.6"><div class="marquee-track"><span class="it">CIDB<span class="star">&#10038;</span>COIDA<span class="star">&#10038;</span>CSD<span class="star">&#10038;</span>ECSA<span class="star">&#10038;</span>NHBRC<span class="star">&#10038;</span>IWMSA<span class="star">&#10038;</span>B-BBEE LEVEL 1<span class="star">&#10038;</span></span></div></div>
+<section class="block"><div class="wrap">
+  <div class="block-head split"><div><p class="eyebrow" data-reveal="fade">Why choose us</p><h2 class="section-title" data-reveal>Reasons clients stay.</h2></div>
+  <p class="lead" data-reveal data-delay style="--d:.15s">Three of six reasons a government office or developer picks Iyadi over a generic firm.</p></div>
+  <div class="why-grid">
+<div class="why-card" data-reveal data-delay style="--d:0ms" data-cursor>
+  <div class="wn">01</div><h3>Proven expertise &amp; quality</h3><p>Eleven registered specialists across seven disciplines means your project is handled by named professionals, not subcontracted guesswork.</p><div class="ln"></div>
+</div>
+<div class="why-card" data-reveal data-delay style="--d:80ms" data-cursor>
+  <div class="wn">02</div><h3>Safety &amp; compliance</h3><p>COIDA, CIDB and NHBRC registration keep your site compliant and your liability covered, on every phase.</p><div class="ln"></div>
+</div>
+<div class="why-card" data-reveal data-delay style="--d:160ms" data-cursor>
+  <div class="wn">03</div><h3>End-to-end service excellence</h3><p>From land-use approval to construction handover, one accountable team keeps you informed at every step.</p><div class="ln"></div>
+</div></div>
+  <div data-reveal style="margin-top:40px"><a href="why-choose-us.html" class="btn btn-green mag" data-cursor>See all six reasons <svg class="arr" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+</div></section>
+<section class="green-hero" style="padding-block:clamp(90px,14vh,170px)">
+  <div class="green-particles"></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <p class="eyebrow light" data-reveal="fade">Going green</p>
+    <h2 class="kinetic" data-split data-reveal style="margin-top:18px;font-size:clamp(2rem,5.2vw,4.4rem);color:#fff;max-width:18ch">We design developments that meet today without borrowing from tomorrow.</h2>
+    <p class="lead" data-reveal data-delay style="--d:.2s;color:rgba(255,255,255,.82);margin-top:24px">Reduced carbon, renewable energy and equitable resource access, planned into every project from the start.</p>
+    <a href="going-green.html" class="btn btn-gold mag" data-cursor style="margin-top:30px">Our green commitment <svg class="arr" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</section>
 
-  <script>
-    // Trigger entrance animation only after first paint so it never blocks content.
-    requestAnimationFrame(function () {
-      document.body.classList.add('is-ready');
-    });
-  </script>
-</body>
-</html>
+<section class="cta-band"><div class="bp-grid"></div><div class="wrap" style="position:relative;z-index:2">
+  <p class="eyebrow light" data-reveal="fade">Start your project</p>
+  <h2 class="kinetic" data-split data-reveal style="margin-top:18px">Your project starts with a conversation.</h2>
+  <p class="lead" data-reveal data-delay style="--d:.15s;margin-top:22px">Tell us about your development and we will respond within two business days, with a clear next step.</p>
+  <div class="ph" data-reveal data-delay style="--d:.3s;margin-top:26px"><a href="tel:0360040024">036 004 0024</a><a href="mailto:info@iyadiplanningsolutions.co.za">info@iyadiplanningsolutions.co.za</a></div>
+  <a href="contact.html" class="btn btn-light mag" data-cursor style="margin-top:30px">Start your planning application <svg class="arr" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div></section></main>
+<footer class="footer"><div class="wrap">
+  <div class="footer-top">
+    <div>
+      <a href="index.html" class="brand" data-cursor>
+        <span class="mark-chip"><img src="brand/iyadi-logo.png" alt="Iyadi Planning Solutions logo"/></span>
+        <span class="bt"><b>IYADI</b><small>Reaching New Heights</small></span>
+      </a>
+      <p class="fdesc">A Level 1 B-BBEE town planning, architecture and construction firm in Ladysmith, serving government, developers and communities across KwaZulu-Natal.</p>
+    </div>
+    <div class="foot-col"><h5>Explore</h5>
+      <a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a>
+      <a href="certifications.html">Certifications</a><a href="why-choose-us.html">Why Choose Us</a>
+      <a href="going-green.html">Going Green</a><a href="contact.html">Contact</a></div>
+    <div class="foot-col"><h5>Contact</h5>
+      <a href="tel:0360040024">036 004 0024</a><a href="tel:0614052204">061 405 2204</a>
+      <a href="mailto:info@iyadiplanningsolutions.co.za">info@iyadiplanningsolutions.co.za</a>
+      <p>45 Queen Street, Office No. 6,<br>Ladysmith, 3370, KwaZulu-Natal</p>
+      <a href="https://www.iyadiplanningsolutions.co" target="_blank" rel="noopener">www.iyadiplanningsolutions.co</a></div>
+  </div>
+  <div class="foot-rule"></div>
+  <div class="footer-bot">
+    <span>&copy; 2026 Iyadi Planning Solutions (Pty) Ltd. All rights reserved.</span>
+    <div class="regs"><span>Reg 2021/652941/07</span><span>CIDB 990001600907</span><span class="bbee">B-BBEE Level 1</span></div>
+  </div>
+</div></footer><script src="main.js"></script></body></html>
