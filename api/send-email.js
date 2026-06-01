@@ -75,25 +75,25 @@ module.exports = async function handler(req, res) {
   const autoReplyHtml = `<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" style="color-scheme:light">
 <head>${headCSS('Thank you — Iyadi Planning Solutions')}</head>
-<body class="em-hero" style="margin:0;padding:0;background-color:${G_DEEP};color-scheme:light" bgcolor="${G_DEEP}">
+<body class="em-hero" style="margin:0;padding:0;background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});color-scheme:light" bgcolor="${G_DEEP}">
 
 <table width="100%" cellpadding="0" cellspacing="0" role="presentation"
-  bgcolor="${G_DEEP}" style="background-color:${G_DEEP}">
-<tr><td align="center" bgcolor="${G_DEEP}" style="background-color:${G_DEEP}">
+  bgcolor="${G_DEEP}" style="background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP})">
+<tr><td align="center" bgcolor="${G_DEEP}" style="background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP})">
 
   <table width="600" cellpadding="0" cellspacing="0" role="presentation"
     style="max-width:600px;width:100%">
 
     <!-- top gold bar -->
     <tr><td height="4" bgcolor="${GOLD}" class="em-gold"
-      style="background-color:${GOLD};font-size:0;line-height:0">&nbsp;</td></tr>
+      style="background-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0;line-height:0">&nbsp;</td></tr>
 
     <!-- ── HERO ── -->
-    <tr><td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};padding:0">
+    <tr><td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});padding:0">
       <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
         <tr>
-          <td width="4" bgcolor="${GOLD}" class="em-gold" style="background-color:${GOLD};font-size:0">&nbsp;</td>
-          <td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};padding:48px 44px 0">
+          <td width="4" bgcolor="${GOLD}" class="em-gold" style="background-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0">&nbsp;</td>
+          <td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});padding:48px 44px 0">
 
             <!-- logo -->
             <table cellpadding="0" cellspacing="0" role="presentation">
@@ -130,13 +130,13 @@ module.exports = async function handler(req, res) {
       <!-- gold accent line -->
       <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
         <tr>
-          <td width="4" bgcolor="${GOLD}" class="em-gold" style="background-color:${GOLD};font-size:0">&nbsp;</td>
-          <td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};padding:28px 44px 0">
+          <td width="4" bgcolor="${GOLD}" class="em-gold" style="background-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0">&nbsp;</td>
+          <td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});padding:28px 44px 0">
             <table cellpadding="0" cellspacing="0" role="presentation">
               <tr>
-                <td width="48" height="1" bgcolor="${GOLD}" style="background-color:${GOLD};font-size:0;line-height:0">&nbsp;</td>
+                <td width="48" height="1" bgcolor="${GOLD}" style="background-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0;line-height:0">&nbsp;</td>
                 <td width="10">&nbsp;</td>
-                <td width="24" height="1" bgcolor="${G_PILL}" style="background-color:${G_PILL};font-size:0;line-height:0">&nbsp;</td>
+                <td width="24" height="1" bgcolor="${G_PILL}" style="background-color:${G_PILL};background-image:linear-gradient(${G_PILL},${G_PILL});font-size:0;line-height:0">&nbsp;</td>
               </tr>
             </table>
           </td>
@@ -146,8 +146,8 @@ module.exports = async function handler(req, res) {
       <!-- stats -->
       <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
         <tr>
-          <td width="4" bgcolor="${GOLD}" class="em-gold" style="background-color:${GOLD};font-size:0">&nbsp;</td>
-          <td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};padding:24px 44px 48px">
+          <td width="4" bgcolor="${GOLD}" class="em-gold" style="background-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0">&nbsp;</td>
+          <td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});padding:24px 44px 48px">
             <table cellpadding="0" cellspacing="0" role="presentation">
               <tr>
                 <td style="padding-right:32px;border-right:1px solid rgba(255,255,255,0.14)">
@@ -170,7 +170,7 @@ module.exports = async function handler(req, res) {
     </td></tr>
 
     <!-- ── PROMISE BAND ── -->
-    <tr><td bgcolor="${GOLD}" class="em-gold" style="background-color:${GOLD};padding:16px 48px">
+    <tr><td bgcolor="${GOLD}" class="em-gold" style="background-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});padding:16px 48px">
       <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:11px;
          letter-spacing:0.2em;text-transform:uppercase;color:${G_DEEP};font-weight:700;margin:0">
         We respond within 2 business days
@@ -233,7 +233,7 @@ module.exports = async function handler(req, res) {
 
       <!-- urgent contact -->
       <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin-top:32px">
-        <tr><td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};border-radius:8px;padding:18px 22px">
+        <tr><td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});border-radius:8px;padding:18px 22px">
           <p class="gt" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:${GOLD};font-weight:700;margin:0 0 8px">Need to reach us now?</p>
           <p class="wt" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:15px;color:#fff;font-weight:500;margin:0">
             <a href="tel:0360040024" class="gt" style="color:${GOLD_LT};font-weight:700;text-decoration:none">036 004 0024</a>
@@ -252,7 +252,7 @@ module.exports = async function handler(req, res) {
     </td></tr>
 
     <!-- ── FOOTER ── -->
-    <tr><td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};padding:22px 44px;text-align:center">
+    <tr><td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});padding:22px 44px;text-align:center">
       <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:11px;color:rgba(255,255,255,0.35);line-height:1.8;margin:0">
         45 Queen Street, Office No.&nbsp;6 &middot; Ladysmith, 3370 &middot; KwaZulu-Natal<br/>
         <a href="https://www.iyadiplanningsolutions.com" class="gt" style="color:${GOLD};text-decoration:none">iyadiplanningsolutions.com</a>
@@ -265,7 +265,7 @@ module.exports = async function handler(req, res) {
 
     <!-- bottom gold bar -->
     <tr><td height="4" bgcolor="${GOLD}" class="em-gold"
-      style="background-color:${GOLD};font-size:0;line-height:0">&nbsp;</td></tr>
+      style="background-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0;line-height:0">&nbsp;</td></tr>
 
   </table>
 
@@ -290,25 +290,25 @@ module.exports = async function handler(req, res) {
   const internalHtml = `<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" style="color-scheme:light">
 <head>${headCSS(`New enquiry — ${name}`)}</head>
-<body class="em-hero" style="margin:0;padding:0;background-color:${G_DEEP};color-scheme:light" bgcolor="${G_DEEP}">
+<body class="em-hero" style="margin:0;padding:0;background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});color-scheme:light" bgcolor="${G_DEEP}">
 
 <table width="100%" cellpadding="0" cellspacing="0" role="presentation"
-  bgcolor="${G_DEEP}" style="background-color:${G_DEEP}">
-<tr><td align="center" bgcolor="${G_DEEP}" style="background-color:${G_DEEP}">
+  bgcolor="${G_DEEP}" style="background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP})">
+<tr><td align="center" bgcolor="${G_DEEP}" style="background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP})">
 
   <table width="600" cellpadding="0" cellspacing="0" role="presentation"
     style="max-width:600px;width:100%">
 
     <!-- top gold bar -->
     <tr><td height="4" bgcolor="${GOLD}" class="em-gold"
-      style="background-color:${GOLD};font-size:0;line-height:0">&nbsp;</td></tr>
+      style="background-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0;line-height:0">&nbsp;</td></tr>
 
     <!-- ── HEADER ── -->
-    <tr><td bgcolor="${G_MID}" class="em-panel" style="background-color:${G_MID};padding:0">
+    <tr><td bgcolor="${G_MID}" class="em-panel" style="background-color:${G_MID};background-image:linear-gradient(${G_MID},${G_MID});padding:0">
       <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
         <tr>
-          <td width="4" bgcolor="${GOLD}" class="em-gold" style="background-color:${GOLD};font-size:0">&nbsp;</td>
-          <td bgcolor="${G_MID}" class="em-panel" style="background-color:${G_MID};padding:34px 44px">
+          <td width="4" bgcolor="${GOLD}" class="em-gold" style="background-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0">&nbsp;</td>
+          <td bgcolor="${G_MID}" class="em-panel" style="background-color:${G_MID};background-image:linear-gradient(${G_MID},${G_MID});padding:34px 44px">
 
             <!-- logo + label -->
             <table cellpadding="0" cellspacing="0" role="presentation">
@@ -331,7 +331,7 @@ module.exports = async function handler(req, res) {
 
             <!-- service pill -->
             <table cellpadding="0" cellspacing="0" role="presentation" style="margin-top:16px">
-              <tr><td bgcolor="${G_PILL}" style="background-color:${G_PILL};border:1px solid ${GOLD};border-radius:100px;padding:6px 18px">
+              <tr><td bgcolor="${G_PILL}" style="background-color:${G_PILL};background-image:linear-gradient(${G_PILL},${G_PILL});border:1px solid ${GOLD};border-radius:100px;padding:6px 18px">
                 <span class="gt" style="font-family:'Space Mono',monospace,Arial;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:${GOLD_LT};font-weight:700">${svc}</span>
               </td></tr>
             </table>
@@ -390,7 +390,7 @@ module.exports = async function handler(req, res) {
           <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
             <tr>
               <td width="3" bgcolor="${GOLD}" class="em-gold"
-                style="background-color:${GOLD};font-size:0">&nbsp;</td>
+                style="background-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0">&nbsp;</td>
               <td style="padding:4px 0 4px 18px">
                 <p class="i2t" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:15px;color:${INK_2};line-height:1.85;margin:0;white-space:pre-wrap">${message}</p>
               </td>
@@ -405,7 +405,7 @@ module.exports = async function handler(req, res) {
     <tr><td bgcolor="${WARM}" class="em-warm"
       style="background-color:${WARM};padding:28px 44px;text-align:center;border-top:3px solid ${GOLD}">
       <a href="mailto:${email}?subject=Re%3A%20Your%20Iyadi%20Planning%20Solutions%20Enquiry&body=Dear%20${encodeURIComponent(name)}%2C%0A%0AThank%20you%20for%20your%20interest."
-        style="display:inline-block;background-color:${G_MID};color:#fff;
+        style="display:inline-block;background-color:${G_MID};background-image:linear-gradient(${G_MID},${G_MID});color:#fff;
                font-family:'Plus Jakarta Sans',Arial,sans-serif;font-weight:700;
                font-size:13px;letter-spacing:0.08em;text-transform:uppercase;
                padding:16px 40px;border-radius:100px;text-decoration:none">
@@ -416,7 +416,7 @@ module.exports = async function handler(req, res) {
 
     <!-- ── FOOTER ── -->
     <tr><td bgcolor="${G_DEEP}" class="em-hero"
-      style="background-color:${G_DEEP};padding:22px 44px;text-align:center">
+      style="background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});padding:22px 44px;text-align:center">
       <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:10px;color:rgba(255,255,255,0.3);line-height:1.8;margin:0">
         Iyadi Planning Solutions (Pty) Ltd &nbsp;&middot;&nbsp; Ladysmith, KwaZulu-Natal<br/>
         Reg 2021/652941/07 &nbsp;&middot;&nbsp; B&#8209;BBEE Level 1<br/>
@@ -426,7 +426,7 @@ module.exports = async function handler(req, res) {
 
     <!-- bottom gold bar -->
     <tr><td height="4" bgcolor="${GOLD}" class="em-gold"
-      style="background-color:${GOLD};font-size:0;line-height:0">&nbsp;</td></tr>
+      style="background-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0;line-height:0">&nbsp;</td></tr>
 
   </table>
 
