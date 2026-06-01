@@ -39,10 +39,20 @@
   $$('.kinetic[data-split]').forEach(splitKinetic);
 
   /* ---------- char splitter (going-green quote) ---------- */
+  /* Group characters into per-word nowrap wrappers so words never break
+     mid-word; spaces between words remain normal wrap opportunities. */
   $$('.chars[data-split]').forEach(el=>{
     const t=el.textContent; el.textContent='';
-    t.split('').forEach((c,i)=>{ const s=document.createElement('span'); s.className='ch';
-      s.textContent=c===' '?'\u00a0':c; s.style.transitionDelay=(i*18)+'ms'; el.appendChild(s); });
+    let idx=0;
+    t.split(/(\s+)/).forEach(part=>{
+      if(part==='') return;
+      if(!part.trim()){ el.appendChild(document.createTextNode(' ')); return; }
+      const word=document.createElement('span');
+      word.style.display='inline-block'; word.style.whiteSpace='nowrap';
+      part.split('').forEach(c=>{ const s=document.createElement('span'); s.className='ch';
+        s.textContent=c; s.style.transitionDelay=(idx*18)+'ms'; idx++; word.appendChild(s); });
+      el.appendChild(word);
+    });
   });
 
   /* ---------- hero skyline (home) ---------- */
@@ -124,6 +134,19 @@
   $$('[data-reveal]').forEach(el=>{ if(!el.closest('.hero')&&!el.closest('.page-hero')) io.observe(el); });
   $$('.kinetic, .chars').forEach(el=>{ if(!el.closest('.hero')&&!el.closest('.page-hero')) io.observe(el); });
   if(reduce) $$('[data-reveal],.kinetic,.chars').forEach(el=> el.classList.add('in'));
+
+  /* Safety net: anything already in/above the viewport on load reveals
+     immediately, and a hard timeout reveals everything so content can
+     never stay invisible if the observer misfires. */
+  function revealIfSeen(){ $$('[data-reveal],.kinetic,.chars').forEach(el=>{
+    if(el.classList.contains('in')) return;
+    if(el.closest('.hero')||el.closest('.page-hero')) return;
+    const r=el.getBoundingClientRect();
+    if(r.top < window.innerHeight*0.92){ el.classList.add('in'); io.unobserve(el); }
+  }); }
+  window.addEventListener('load', revealIfSeen);
+  revealIfSeen();
+  setTimeout(()=> $$('[data-reveal],.kinetic,.chars').forEach(el=> el.classList.add('in')), 2600);
 
   /* ---------- counters + bars ---------- */
   const cio=new IntersectionObserver((es)=>{ es.forEach(e=>{ if(!e.isIntersecting) return; cio.unobserve(e.target);
