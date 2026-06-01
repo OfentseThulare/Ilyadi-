@@ -40,14 +40,21 @@ module.exports = async function handler(req, res) {
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="color-scheme" content="light"/>
+<meta name="supported-color-schemes" content="light"/>
 <title>Thank you — Iyadi Planning Solutions</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+  :root{ color-scheme:light; }
   body,table,td{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
   body{margin:0;padding:0;background-color:${G_DEEP}}
   img{border:0;outline:none;text-decoration:none;display:block}
   a{color:${GOLD_LT};text-decoration:none}
+  /* Force light mode — prevent email clients rewriting dark backgrounds */
+  @media (prefers-color-scheme:dark){
+    body, table, td, div, p, span, a{ color-scheme:light !important; }
+  }
 </style>
 </head>
 <body style="margin:0;padding:0;background-color:${G_DEEP}" bgcolor="${G_DEEP}">
@@ -296,14 +303,20 @@ module.exports = async function handler(req, res) {
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="color-scheme" content="light"/>
+<meta name="supported-color-schemes" content="light"/>
 <title>New enquiry — ${name}</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+  :root{ color-scheme:light; }
   body,table,td{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
   body{margin:0;padding:0;background-color:${G_DEEP}}
   img{border:0;outline:none;text-decoration:none;display:block}
   a{color:${GOLD_LT};text-decoration:none}
+  @media (prefers-color-scheme:dark){
+    body, table, td, div, p, span, a{ color-scheme:light !important; }
+  }
 </style>
 </head>
 <body style="margin:0;padding:0;background-color:${G_DEEP}" bgcolor="${G_DEEP}">

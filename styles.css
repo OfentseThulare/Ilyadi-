@@ -364,20 +364,32 @@ section{ position:relative; }
   cursor:pointer; transition:padding-left .5s var(--ease-out); }
 .svc::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:0; z-index:0;
   background:var(--green-deep); transition:width .55s var(--ease-out); }
-.svc:hover{ padding-left:32px; } .svc:hover::before{ width:100%; }
+/* hover (desktop) + .active (touch tap) both trigger the same state */
+.svc:hover,
+.svc.active{ padding-left:32px; }
+.svc:hover::before,
+.svc.active::before{ width:100%; }
 .svc > *{ position:relative; z-index:1; transition:color .4s; }
 .svc-no{ font-family:var(--font-mono); font-size:.8rem; color:var(--green); }
 .svc-main h3{ font-size:clamp(1.4rem,3.2vw,2.4rem); }
 .svc-desc{ color:var(--ink-2); font-size:.96rem; max-width:54ch; margin-top:6px; }
 .svc-expand{ max-height:0; overflow:hidden; opacity:0; transition:max-height .55s var(--ease-out), opacity .4s; }
-.svc:hover .svc-expand{ max-height:120px; opacity:1; margin-top:10px; }
+.svc:hover .svc-expand,
+.svc.active .svc-expand{ max-height:120px; opacity:1; margin-top:10px; }
 .svc-expand a{ display:inline-flex; align-items:center; gap:8px; font-weight:700; font-size:.84rem;
   color:var(--gold-2); margin-top:10px; }
-.svc:hover, .svc:hover .svc-desc, .svc:hover .svc-no{ color:var(--paper); }
+.svc:hover, .svc:hover .svc-desc, .svc:hover .svc-no,
+.svc.active, .svc.active .svc-desc, .svc.active .svc-no{ color:var(--paper); }
 .svc-arrow{ width:54px; height:54px; border-radius:50%; border:1px solid var(--line);
   display:grid; place-items:center; transition:transform .5s var(--ease-out), border-color .4s, background .4s; }
-.svc:hover .svc-arrow{ transform:rotate(-45deg); background:var(--gold); border-color:var(--gold); }
-.svc:hover .svc-arrow svg{ stroke:#1a1306; }
+.svc:hover .svc-arrow,
+.svc.active .svc-arrow{ transform:rotate(-45deg); background:var(--gold); border-color:var(--gold); }
+.svc:hover .svc-arrow svg,
+.svc.active .svc-arrow svg{ stroke:#1a1306; }
+/* On touch devices, always show a visible arrow (no hover state available) */
+@media (hover:none){
+  .svc-arrow{ border-color:var(--green); opacity:1; }
+}
 
 /* ---------- process timeline ---------- */
 .process{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; position:relative; }
@@ -578,7 +590,8 @@ section{ position:relative; }
   .cert.feature{ grid-column:span 1; }
   .hero-sub{ flex-direction:column; align-items:flex-start; }
   .scroll-cue{ display:none; }
-  .svc{ grid-template-columns:auto 1fr; } .svc-arrow{ display:none; }
+  .svc{ grid-template-columns:auto 1fr auto; }
+  .svc-arrow{ width:40px; height:40px; flex:none; }
   .brand .bt small{ display:none; }
 }
 .vmv-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }

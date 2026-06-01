@@ -220,6 +220,15 @@
     }
   }
 
+  /* ---------- service rows — tap-to-expand on touch ---------- */
+  $$('.svc').forEach(svc=>{
+    svc.addEventListener('click', ()=>{
+      const wasActive=svc.classList.contains('active');
+      $$('.svc').forEach(s=>s.classList.remove('active'));
+      if(!wasActive) svc.classList.add('active');
+    });
+  });
+
   /* ---------- contact form ---------- */
   const form=$('#cform');
   if(form){ $$('select',form).forEach(s=>{ const sync=()=> s.parentElement.classList.toggle('filled', !!s.value); s.addEventListener('change',sync); sync(); });
