@@ -382,17 +382,18 @@ ${message}
   try {
     // Email 1 — auto-reply to client
     await resend.emails.send({
-      from: 'Iyadi Planning Solutions <onboarding@resend.dev>',
+      from: 'Iyadi Planning Solutions <info@iyadiplanningsolutions.com>',
       to: email,
       subject: 'Thank you for your enquiry — Iyadi Planning Solutions',
       html: autoReplyHtml,
     });
 
     // Email 2 — internal notification to Iyadi team
-    // Set ADMIN_EMAIL in Vercel env vars (e.g. mongezishabangu@gmail.com)
+    // Set ADMIN_EMAIL in Vercel env vars
     await resend.emails.send({
-      from: 'Iyadi Website <onboarding@resend.dev>',
+      from: 'Iyadi Website <noreply@iyadiplanningsolutions.com>',
       to: process.env.ADMIN_EMAIL,
+      reply_to: email,
       subject: `New enquiry: ${name} — ${serviceDisplay}`,
       html: internalHtml,
     });
