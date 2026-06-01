@@ -75,25 +75,25 @@ module.exports = async function handler(req, res) {
   const autoReplyHtml = `<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" style="color-scheme:light">
 <head>${headCSS('Thank you — Iyadi Planning Solutions')}</head>
-<body class="em-hero" style="margin:0;padding:0;background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});color-scheme:light" bgcolor="${G_DEEP}">
+<body class="em-hero" style="margin:0;padding:0;background-color:${G_DEEP};-webkit-text-fill-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});color-scheme:light" bgcolor="${G_DEEP}">
 
 <table width="100%" cellpadding="0" cellspacing="0" role="presentation"
-  bgcolor="${G_DEEP}" style="background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP})">
-<tr><td align="center" bgcolor="${G_DEEP}" style="background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP})">
+  bgcolor="${G_DEEP}" style="background-color:${G_DEEP};-webkit-text-fill-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP})">
+<tr><td align="center" bgcolor="${G_DEEP}" style="background-color:${G_DEEP};-webkit-text-fill-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP})">
 
   <table width="600" cellpadding="0" cellspacing="0" role="presentation"
     style="max-width:600px;width:100%">
 
     <!-- top gold bar -->
     <tr><td height="4" bgcolor="${GOLD}" class="em-gold"
-      style="background-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0;line-height:0">&nbsp;</td></tr>
+      style="background-color:${GOLD};-webkit-text-fill-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0;line-height:0">&nbsp;</td></tr>
 
     <!-- ── HERO ── -->
-    <tr><td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});padding:0">
+    <tr><td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};-webkit-text-fill-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});padding:0">
       <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
         <tr>
-          <td width="4" bgcolor="${GOLD}" class="em-gold" style="background-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0">&nbsp;</td>
-          <td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});padding:48px 44px 0">
+          <td width="4" bgcolor="${GOLD}" class="em-gold" style="background-color:${GOLD};-webkit-text-fill-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0">&nbsp;</td>
+          <td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};-webkit-text-fill-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});padding:48px 44px 0">
 
             <!-- logo -->
             <table cellpadding="0" cellspacing="0" role="presentation">
@@ -104,22 +104,22 @@ module.exports = async function handler(req, res) {
 
             <!-- eyebrow -->
             <p class="gt" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:10px;
-               letter-spacing:0.28em;text-transform:uppercase;color:${GOLD};
+               letter-spacing:0.28em;text-transform:uppercase;color:${GOLD};-webkit-text-fill-color:${GOLD};
                margin:28px 0 0;font-weight:500">
               Town Planning &nbsp;&middot;&nbsp; Architecture &nbsp;&middot;&nbsp; Construction
             </p>
 
             <!-- headline -->
             <p class="wt" style="font-family:'Playfair Display',Georgia,serif;font-size:50px;
-               font-weight:900;line-height:1.02;color:#ffffff;margin:14px 0 0;letter-spacing:-0.02em">
+               font-weight:900;line-height:1.02;color:#ffffff;-webkit-text-fill-color:#ffffff;margin:14px 0 0;letter-spacing:-0.02em">
               We&rsquo;ve got<br/>
-              <span class="gt" style="color:${GOLD_LT};font-style:italic">your message.</span>
+              <span class="gt" style="color:${GOLD_LT};-webkit-text-fill-color:${GOLD_LT};font-style:italic">your message.</span>
             </p>
 
             <!-- subline -->
             <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:15px;
                color:rgba(255,255,255,0.65);line-height:1.7;margin:18px 0 0;font-weight:300">
-              Thank you, <strong class="wt" style="color:#fff;font-weight:600">${name}</strong>.
+              Thank you, <strong class="wt" style="color:#fff;-webkit-text-fill-color:#ffffff;font-weight:600">${name}</strong>.
               Your enquiry has been received and is in the right hands.
             </p>
 
@@ -130,13 +130,13 @@ module.exports = async function handler(req, res) {
       <!-- gold accent line -->
       <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
         <tr>
-          <td width="4" bgcolor="${GOLD}" class="em-gold" style="background-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0">&nbsp;</td>
-          <td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});padding:28px 44px 0">
+          <td width="4" bgcolor="${GOLD}" class="em-gold" style="background-color:${GOLD};-webkit-text-fill-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0">&nbsp;</td>
+          <td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};-webkit-text-fill-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});padding:28px 44px 0">
             <table cellpadding="0" cellspacing="0" role="presentation">
               <tr>
-                <td width="48" height="1" bgcolor="${GOLD}" style="background-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0;line-height:0">&nbsp;</td>
+                <td width="48" height="1" bgcolor="${GOLD}" style="background-color:${GOLD};-webkit-text-fill-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0;line-height:0">&nbsp;</td>
                 <td width="10">&nbsp;</td>
-                <td width="24" height="1" bgcolor="${G_PILL}" style="background-color:${G_PILL};background-image:linear-gradient(${G_PILL},${G_PILL});font-size:0;line-height:0">&nbsp;</td>
+                <td width="24" height="1" bgcolor="${G_PILL}" style="background-color:${G_PILL};-webkit-text-fill-color:${G_PILL};background-image:linear-gradient(${G_PILL},${G_PILL});font-size:0;line-height:0">&nbsp;</td>
               </tr>
             </table>
           </td>
@@ -146,20 +146,20 @@ module.exports = async function handler(req, res) {
       <!-- stats -->
       <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
         <tr>
-          <td width="4" bgcolor="${GOLD}" class="em-gold" style="background-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0">&nbsp;</td>
-          <td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});padding:24px 44px 48px">
+          <td width="4" bgcolor="${GOLD}" class="em-gold" style="background-color:${GOLD};-webkit-text-fill-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0">&nbsp;</td>
+          <td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};-webkit-text-fill-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});padding:24px 44px 48px">
             <table cellpadding="0" cellspacing="0" role="presentation">
               <tr>
                 <td style="padding-right:32px;border-right:1px solid rgba(255,255,255,0.14)">
-                  <p class="wt" style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:800;color:#fff;line-height:1;margin:0">2021</p>
+                  <p class="wt" style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:800;color:#fff;-webkit-text-fill-color:#ffffff;line-height:1;margin:0">2021</p>
                   <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin:5px 0 0">Founded</p>
                 </td>
                 <td style="padding:0 32px;border-right:1px solid rgba(255,255,255,0.14)">
-                  <p class="wt" style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:800;color:#fff;line-height:1;margin:0">11</p>
+                  <p class="wt" style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:800;color:#fff;-webkit-text-fill-color:#ffffff;line-height:1;margin:0">11</p>
                   <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin:5px 0 0">Specialists</p>
                 </td>
                 <td style="padding-left:32px">
-                  <p class="gt" style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:800;color:${GOLD_LT};line-height:1;margin:0">L1</p>
+                  <p class="gt" style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:800;color:${GOLD_LT};-webkit-text-fill-color:${GOLD_LT};line-height:1;margin:0">L1</p>
                   <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin:5px 0 0">B&#8209;BBEE</p>
                 </td>
               </tr>
@@ -170,9 +170,9 @@ module.exports = async function handler(req, res) {
     </td></tr>
 
     <!-- ── PROMISE BAND ── -->
-    <tr><td bgcolor="${GOLD}" class="em-gold" style="background-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});padding:16px 48px">
+    <tr><td bgcolor="${GOLD}" class="em-gold" style="background-color:${GOLD};-webkit-text-fill-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});padding:16px 48px">
       <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:11px;
-         letter-spacing:0.2em;text-transform:uppercase;color:${G_DEEP};font-weight:700;margin:0">
+         letter-spacing:0.2em;text-transform:uppercase;color:${G_DEEP};-webkit-text-fill-color:${G_DEEP};font-weight:700;margin:0">
         We respond within 2 business days
       </p>
     </td></tr>
@@ -181,7 +181,7 @@ module.exports = async function handler(req, res) {
     <tr><td bgcolor="${PAPER}" class="em-paper" style="background-color:${PAPER};padding:48px 44px 40px">
 
       <p class="it" style="font-family:'Playfair Display',Georgia,serif;font-size:24px;
-         font-weight:800;color:${INK};line-height:1.2;margin:0 0 24px">
+         font-weight:800;color:${INK};-webkit-text-fill-color:${INK};line-height:1.2;margin:0 0 24px">
         What happens next?
       </p>
 
@@ -192,11 +192,11 @@ module.exports = async function handler(req, res) {
           <table cellpadding="0" cellspacing="0" role="presentation">
             <tr>
               <td width="40" valign="top">
-                <p class="gt" style="font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:800;color:${GOLD};line-height:1;margin:0">01</p>
+                <p class="gt" style="font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:800;color:${GOLD};-webkit-text-fill-color:${GOLD};line-height:1;margin:0">01</p>
               </td>
               <td style="padding-left:14px">
-                <p class="it" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:14px;font-weight:600;color:${INK};margin:0 0 4px">Your enquiry is reviewed</p>
-                <p class="i2t" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:13px;color:${INK_2};line-height:1.6;margin:0">A registered specialist reads your message and assesses the best path forward.</p>
+                <p class="it" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:14px;font-weight:600;color:${INK};-webkit-text-fill-color:${INK};margin:0 0 4px">Your enquiry is reviewed</p>
+                <p class="i2t" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:13px;color:${INK_2};-webkit-text-fill-color:${INK_2};line-height:1.6;margin:0">A registered specialist reads your message and assesses the best path forward.</p>
               </td>
             </tr>
           </table>
@@ -206,11 +206,11 @@ module.exports = async function handler(req, res) {
           <table cellpadding="0" cellspacing="0" role="presentation">
             <tr>
               <td width="40" valign="top">
-                <p class="gt" style="font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:800;color:${GOLD};line-height:1;margin:0">02</p>
+                <p class="gt" style="font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:800;color:${GOLD};-webkit-text-fill-color:${GOLD};line-height:1;margin:0">02</p>
               </td>
               <td style="padding-left:14px">
-                <p class="it" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:14px;font-weight:600;color:${INK};margin:0 0 4px">We reach out directly</p>
-                <p class="i2t" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:13px;color:${INK_2};line-height:1.6;margin:0">Expect a call or email within 2 business days with a clear next step.</p>
+                <p class="it" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:14px;font-weight:600;color:${INK};-webkit-text-fill-color:${INK};margin:0 0 4px">We reach out directly</p>
+                <p class="i2t" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:13px;color:${INK_2};-webkit-text-fill-color:${INK_2};line-height:1.6;margin:0">Expect a call or email within 2 business days with a clear next step.</p>
               </td>
             </tr>
           </table>
@@ -220,11 +220,11 @@ module.exports = async function handler(req, res) {
           <table cellpadding="0" cellspacing="0" role="presentation">
             <tr>
               <td width="40" valign="top">
-                <p class="gt" style="font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:800;color:${GOLD};line-height:1;margin:0">03</p>
+                <p class="gt" style="font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:800;color:${GOLD};-webkit-text-fill-color:${GOLD};line-height:1;margin:0">03</p>
               </td>
               <td style="padding-left:14px">
-                <p class="it" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:14px;font-weight:600;color:${INK};margin:0 0 4px">Your project gets moving</p>
-                <p class="i2t" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:13px;color:${INK_2};line-height:1.6;margin:0">From land-use approval to construction completion, one accountable team handles it all.</p>
+                <p class="it" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:14px;font-weight:600;color:${INK};-webkit-text-fill-color:${INK};margin:0 0 4px">Your project gets moving</p>
+                <p class="i2t" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:13px;color:${INK_2};-webkit-text-fill-color:${INK_2};line-height:1.6;margin:0">From land-use approval to construction completion, one accountable team handles it all.</p>
               </td>
             </tr>
           </table>
@@ -233,10 +233,10 @@ module.exports = async function handler(req, res) {
 
       <!-- urgent contact -->
       <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin-top:32px">
-        <tr><td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});border-radius:8px;padding:18px 22px">
-          <p class="gt" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:${GOLD};font-weight:700;margin:0 0 8px">Need to reach us now?</p>
-          <p class="wt" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:15px;color:#fff;font-weight:500;margin:0">
-            <a href="tel:0360040024" class="gt" style="color:${GOLD_LT};font-weight:700;text-decoration:none">036 004 0024</a>
+        <tr><td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};-webkit-text-fill-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});border-radius:8px;padding:18px 22px">
+          <p class="gt" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:${GOLD};-webkit-text-fill-color:${GOLD};font-weight:700;margin:0 0 8px">Need to reach us now?</p>
+          <p class="wt" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:15px;color:#fff;-webkit-text-fill-color:#ffffff;font-weight:500;margin:0">
+            <a href="tel:0360040024" class="gt" style="color:${GOLD_LT};-webkit-text-fill-color:${GOLD_LT};font-weight:700;text-decoration:none">036 004 0024</a>
             &nbsp;&nbsp;&middot;&nbsp;&nbsp;
             <a href="mailto:info@iyadiplanningsolutions.com" style="color:rgba(255,255,255,0.55);font-size:13px;text-decoration:none">info@iyadiplanningsolutions.com</a>
           </p>
@@ -247,15 +247,15 @@ module.exports = async function handler(req, res) {
 
     <!-- ── SIGN-OFF ── -->
     <tr><td bgcolor="${WARM}" class="em-warm" style="background-color:${WARM};padding:28px 44px;border-top:3px solid ${GOLD}">
-      <p style="font-family:'Playfair Display',Georgia,serif;font-size:19px;font-weight:800;color:${G_DEEP};margin:0">The Iyadi Team</p>
-      <p class="gt" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:${GOLD};margin:6px 0 0">Reaching New Heights</p>
+      <p style="font-family:'Playfair Display',Georgia,serif;font-size:19px;font-weight:800;color:${G_DEEP};-webkit-text-fill-color:${G_DEEP};margin:0">The Iyadi Team</p>
+      <p class="gt" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:${GOLD};-webkit-text-fill-color:${GOLD};margin:6px 0 0">Reaching New Heights</p>
     </td></tr>
 
     <!-- ── FOOTER ── -->
-    <tr><td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});padding:22px 44px;text-align:center">
+    <tr><td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};-webkit-text-fill-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});padding:22px 44px;text-align:center">
       <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:11px;color:rgba(255,255,255,0.35);line-height:1.8;margin:0">
         45 Queen Street, Office No.&nbsp;6 &middot; Ladysmith, 3370 &middot; KwaZulu-Natal<br/>
-        <a href="https://www.iyadiplanningsolutions.com" class="gt" style="color:${GOLD};text-decoration:none">iyadiplanningsolutions.com</a>
+        <a href="https://www.iyadiplanningsolutions.com" class="gt" style="color:${GOLD};-webkit-text-fill-color:${GOLD};text-decoration:none">iyadiplanningsolutions.com</a>
         &nbsp;&middot;&nbsp; Reg 2021/652941/07 &nbsp;&middot;&nbsp; B&#8209;BBEE Level&nbsp;1
       </p>
       <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:10px;color:rgba(255,255,255,0.2);margin:10px 0 0">
@@ -265,7 +265,7 @@ module.exports = async function handler(req, res) {
 
     <!-- bottom gold bar -->
     <tr><td height="4" bgcolor="${GOLD}" class="em-gold"
-      style="background-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0;line-height:0">&nbsp;</td></tr>
+      style="background-color:${GOLD};-webkit-text-fill-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0;line-height:0">&nbsp;</td></tr>
 
   </table>
 
@@ -282,7 +282,7 @@ module.exports = async function handler(req, res) {
   const rows = [
     ['Full Name',        name],
     ['Company / Org',    org2],
-    ['Email',            `<a href="mailto:${email}" style="color:${G_PILL};font-weight:700;text-decoration:none">${email}</a>`],
+    ['Email',            `<a href="mailto:${email}" style="color:${G_PILL};-webkit-text-fill-color:${G_PILL};font-weight:700;text-decoration:none">${email}</a>`],
     ['Phone',            ph],
     ['Service Interest', svc],
   ];
@@ -290,24 +290,24 @@ module.exports = async function handler(req, res) {
   const internalHtml = `<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" style="color-scheme:light">
 <head>${headCSS(`New enquiry — ${name}`)}</head>
-<body class="em-hero" style="margin:0;padding:0;background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});color-scheme:light" bgcolor="${G_DEEP}">
+<body class="em-hero" style="margin:0;padding:0;background-color:${G_DEEP};-webkit-text-fill-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});color-scheme:light" bgcolor="${G_DEEP}">
 
 <table width="100%" cellpadding="0" cellspacing="0" role="presentation"
-  bgcolor="${G_DEEP}" style="background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP})">
-<tr><td align="center" bgcolor="${G_DEEP}" style="background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP})">
+  bgcolor="${G_DEEP}" style="background-color:${G_DEEP};-webkit-text-fill-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP})">
+<tr><td align="center" bgcolor="${G_DEEP}" style="background-color:${G_DEEP};-webkit-text-fill-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP})">
 
   <table width="600" cellpadding="0" cellspacing="0" role="presentation"
     style="max-width:600px;width:100%">
 
     <!-- top gold bar -->
     <tr><td height="4" bgcolor="${GOLD}" class="em-gold"
-      style="background-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0;line-height:0">&nbsp;</td></tr>
+      style="background-color:${GOLD};-webkit-text-fill-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0;line-height:0">&nbsp;</td></tr>
 
     <!-- ── HEADER ── -->
     <tr><td bgcolor="${G_MID}" class="em-panel" style="background-color:${G_MID};background-image:linear-gradient(${G_MID},${G_MID});padding:0">
       <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
         <tr>
-          <td width="4" bgcolor="${GOLD}" class="em-gold" style="background-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0">&nbsp;</td>
+          <td width="4" bgcolor="${GOLD}" class="em-gold" style="background-color:${GOLD};-webkit-text-fill-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0">&nbsp;</td>
           <td bgcolor="${G_MID}" class="em-panel" style="background-color:${G_MID};background-image:linear-gradient(${G_MID},${G_MID});padding:34px 44px">
 
             <!-- logo + label -->
@@ -317,22 +317,22 @@ module.exports = async function handler(req, res) {
                   <img src="${LOGO}" width="34" height="34" alt="Iyadi" style="height:34px;width:auto;display:inline-block;vertical-align:middle"/>
                 </td>
                 <td style="padding-left:14px;vertical-align:middle">
-                  <p class="gt" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:9px;letter-spacing:0.26em;text-transform:uppercase;color:${GOLD};font-weight:600;margin:0">Internal notification</p>
+                  <p class="gt" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:9px;letter-spacing:0.26em;text-transform:uppercase;color:${GOLD};-webkit-text-fill-color:${GOLD};font-weight:600;margin:0">Internal notification</p>
                   <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin:4px 0 0">iyadiplanningsolutions.com</p>
                 </td>
               </tr>
             </table>
 
             <!-- headline -->
-            <p class="wt" style="font-family:'Playfair Display',Georgia,serif;font-size:38px;font-weight:900;color:#fff;line-height:1.05;margin:24px 0 0;letter-spacing:-0.02em">
+            <p class="wt" style="font-family:'Playfair Display',Georgia,serif;font-size:38px;font-weight:900;color:#fff;-webkit-text-fill-color:#ffffff;line-height:1.05;margin:24px 0 0;letter-spacing:-0.02em">
               New Enquiry<br/>
-              <span class="gt" style="color:${GOLD_LT};font-style:italic">${name}</span>
+              <span class="gt" style="color:${GOLD_LT};-webkit-text-fill-color:${GOLD_LT};font-style:italic">${name}</span>
             </p>
 
             <!-- service pill -->
             <table cellpadding="0" cellspacing="0" role="presentation" style="margin-top:16px">
-              <tr><td bgcolor="${G_PILL}" style="background-color:${G_PILL};background-image:linear-gradient(${G_PILL},${G_PILL});border:1px solid ${GOLD};border-radius:100px;padding:6px 18px">
-                <span class="gt" style="font-family:'Space Mono',monospace,Arial;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:${GOLD_LT};font-weight:700">${svc}</span>
+              <tr><td bgcolor="${G_PILL}" style="background-color:${G_PILL};-webkit-text-fill-color:${G_PILL};background-image:linear-gradient(${G_PILL},${G_PILL});border:1px solid ${GOLD};border-radius:100px;padding:6px 18px">
+                <span class="gt" style="font-family:'Space Mono',monospace,Arial;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:${GOLD_LT};-webkit-text-fill-color:${GOLD_LT};font-weight:700">${svc}</span>
               </td></tr>
             </table>
 
@@ -350,7 +350,7 @@ module.exports = async function handler(req, res) {
         <tr><td colspan="2" bgcolor="${PAPER}" class="em-paper"
           style="background-color:${PAPER};padding:32px 44px 18px">
           <p style="font-family:'Space Mono',monospace,Arial;font-size:9px;letter-spacing:0.28em;
-             text-transform:uppercase;color:${G_PILL};font-weight:700;
+             text-transform:uppercase;color:${G_PILL};-webkit-text-fill-color:${G_PILL};font-weight:700;
              border-bottom:2px solid ${GOLD};padding-bottom:6px;display:inline-block;margin:0">
             Contact details
           </p>
@@ -369,7 +369,7 @@ module.exports = async function handler(req, res) {
           <td bgcolor="${bg}" valign="top"
             style="background-color:${bg};padding:13px 44px 13px 16px;
                    border-top:1px solid rgba(13,13,13,0.06)">
-            <p class="it" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:14px;font-weight:600;color:${INK};line-height:1.5;margin:0">${val}</p>
+            <p class="it" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:14px;font-weight:600;color:${INK};-webkit-text-fill-color:${INK};line-height:1.5;margin:0">${val}</p>
           </td>
         </tr>`;
         }).join('')}
@@ -378,7 +378,7 @@ module.exports = async function handler(req, res) {
         <tr><td colspan="2" bgcolor="${PAPER}" class="em-paper"
           style="background-color:${PAPER};padding:24px 44px 12px;border-top:1px solid rgba(13,13,13,0.06)">
           <p style="font-family:'Space Mono',monospace,Arial;font-size:9px;letter-spacing:0.28em;
-             text-transform:uppercase;color:${G_PILL};font-weight:700;
+             text-transform:uppercase;color:${G_PILL};-webkit-text-fill-color:${G_PILL};font-weight:700;
              border-bottom:2px solid ${GOLD};padding-bottom:6px;display:inline-block;margin:0">
             Message
           </p>
@@ -390,9 +390,9 @@ module.exports = async function handler(req, res) {
           <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
             <tr>
               <td width="3" bgcolor="${GOLD}" class="em-gold"
-                style="background-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0">&nbsp;</td>
+                style="background-color:${GOLD};-webkit-text-fill-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0">&nbsp;</td>
               <td style="padding:4px 0 4px 18px">
-                <p class="i2t" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:15px;color:${INK_2};line-height:1.85;margin:0;white-space:pre-wrap">${message}</p>
+                <p class="i2t" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:15px;color:${INK_2};-webkit-text-fill-color:${INK_2};line-height:1.85;margin:0;white-space:pre-wrap">${message}</p>
               </td>
             </tr>
           </table>
@@ -405,7 +405,7 @@ module.exports = async function handler(req, res) {
     <tr><td bgcolor="${WARM}" class="em-warm"
       style="background-color:${WARM};padding:28px 44px;text-align:center;border-top:3px solid ${GOLD}">
       <a href="mailto:${email}?subject=Re%3A%20Your%20Iyadi%20Planning%20Solutions%20Enquiry&body=Dear%20${encodeURIComponent(name)}%2C%0A%0AThank%20you%20for%20your%20interest."
-        style="display:inline-block;background-color:${G_MID};background-image:linear-gradient(${G_MID},${G_MID});color:#fff;
+        style="display:inline-block;background-color:${G_MID};background-image:linear-gradient(${G_MID},${G_MID});color:#fff;-webkit-text-fill-color:#ffffff;
                font-family:'Plus Jakarta Sans',Arial,sans-serif;font-weight:700;
                font-size:13px;letter-spacing:0.08em;text-transform:uppercase;
                padding:16px 40px;border-radius:100px;text-decoration:none">
@@ -416,7 +416,7 @@ module.exports = async function handler(req, res) {
 
     <!-- ── FOOTER ── -->
     <tr><td bgcolor="${G_DEEP}" class="em-hero"
-      style="background-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});padding:22px 44px;text-align:center">
+      style="background-color:${G_DEEP};-webkit-text-fill-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});padding:22px 44px;text-align:center">
       <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:10px;color:rgba(255,255,255,0.3);line-height:1.8;margin:0">
         Iyadi Planning Solutions (Pty) Ltd &nbsp;&middot;&nbsp; Ladysmith, KwaZulu-Natal<br/>
         Reg 2021/652941/07 &nbsp;&middot;&nbsp; B&#8209;BBEE Level 1<br/>
@@ -426,7 +426,7 @@ module.exports = async function handler(req, res) {
 
     <!-- bottom gold bar -->
     <tr><td height="4" bgcolor="${GOLD}" class="em-gold"
-      style="background-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0;line-height:0">&nbsp;</td></tr>
+      style="background-color:${GOLD};-webkit-text-fill-color:${GOLD};background-image:linear-gradient(${GOLD},${GOLD});font-size:0;line-height:0">&nbsp;</td></tr>
 
   </table>
 
