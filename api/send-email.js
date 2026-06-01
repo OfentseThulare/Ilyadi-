@@ -14,9 +14,9 @@ module.exports = async function handler(req, res) {
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   const LOGO     = 'https://www.iyadiplanningsolutions.com/brand/iyadi-logo.png';
-  const G_DEEP   = '#0d2e0d';   // near-black green — cinematic dark base
-  const G_MID    = '#1a4d1a';   // deep forest green
-  const G_BRIGHT = '#2b7a2b';   // brand green
+  const G_DEEP   = '#020a02';   // almost-black green — cinematic dark base
+  const G_MID    = '#071407';   // very deep forest green
+  const G_BRIGHT = '#0d2e0d';   // rich dark green (was the base)
   const GOLD     = '#c9a327';
   const GOLD_LT  = '#e3c265';
   const PAPER    = '#fafaf7';
