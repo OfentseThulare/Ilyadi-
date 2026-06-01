@@ -1,0 +1,8 @@
+{
+  "name": "iyadi-planning-solutions",
+  "version": "1.0.0",
+  "description": "Iyadi Planning Solutions website",
+  "dependencies": {
+    "resend": "^3.5.0"
+  }
+}

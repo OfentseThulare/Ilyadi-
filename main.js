@@ -223,14 +223,46 @@
   /* ---------- contact form ---------- */
   const form=$('#cform');
   if(form){ $$('select',form).forEach(s=>{ const sync=()=> s.parentElement.classList.toggle('filled', !!s.value); s.addEventListener('change',sync); sync(); });
-    form.addEventListener('submit', e=>{ e.preventDefault();
+    form.addEventListener('submit', async e=>{ e.preventDefault();
       const req=$$('[required]',form); let ok=true;
       req.forEach(f=>{ if(!f.value.trim()){ ok=false; f.style.borderColor='#c0392b'; setTimeout(()=>f.style.borderColor='',1600); } });
       if(!ok) return;
-      console.log('Iyadi enquiry:', Object.fromEntries(new FormData(form)));
-      const okEl=$('#formOk'); if(okEl) okEl.classList.add('show');
-      form.querySelectorAll('input,textarea,select').forEach(f=>{ f.value=''; f.parentElement.classList.remove('filled'); });
-      setTimeout(()=>{ if(okEl) okEl.classList.remove('show'); },5000);
+      const btn=form.querySelector('[type="submit"]');
+      const origText=btn ? btn.textContent : '';
+      if(btn){ btn.disabled=true; btn.textContent='Sending...'; }
+      try {
+        const res=await fetch('/api/send-email',{ method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({
+            name: (document.getElementById('f-name')||{}).value||'',
+            org:  (document.getElementById('f-org')||{}).value||'',
+            email:(document.getElementById('f-email')||{}).value||'',
+            phone:(document.getElementById('f-phone')||{}).value||'',
+            service:(document.getElementById('f-svc')||{}).value||'',
+            message:(document.getElementById('f-msg')||{}).value||''
+          })
+        });
+        if(res.ok){
+          if(btn){ btn.disabled=false; btn.textContent=origText; }
+          const okEl=$('#formOk'); if(okEl) okEl.classList.add('show');
+          form.querySelectorAll('input,textarea,select').forEach(f=>{ f.value=''; f.parentElement.classList.remove('filled'); });
+          setTimeout(()=>{ if(okEl) okEl.classList.remove('show'); },6000);
+        } else {
+          if(btn){ btn.disabled=false; btn.textContent=origText; }
+          const errP=document.createElement('p');
+          errP.style.cssText='color:#c0392b;margin-top:.75rem;font-size:.9rem;';
+          errP.textContent='Something went wrong. Please try again or call us on 036 004 0024.';
+          btn ? btn.insertAdjacentElement('afterend',errP) : form.appendChild(errP);
+          setTimeout(()=>{ if(errP.parentNode) errP.parentNode.removeChild(errP); },6000);
+        }
+      } catch(_){
+        if(btn){ btn.disabled=false; btn.textContent=origText; }
+        const errP=document.createElement('p');
+        errP.style.cssText='color:#c0392b;margin-top:.75rem;font-size:.9rem;';
+        errP.textContent='Something went wrong. Please try again or call us on 036 004 0024.';
+        btn ? btn.insertAdjacentElement('afterend',errP) : form.appendChild(errP);
+        setTimeout(()=>{ if(errP.parentNode) errP.parentNode.removeChild(errP); },6000);
+      }
     });
   }
 
