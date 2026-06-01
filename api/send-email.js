@@ -118,7 +118,7 @@ module.exports = async function handler(req, res) {
 
             <!-- subline -->
             <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:15px;
-               color:rgba(255,255,255,0.65);line-height:1.7;margin:18px 0 0;font-weight:300">
+               color:#aebaae;-webkit-text-fill-color:#aebaae;line-height:1.7;margin:18px 0 0;font-weight:300">
               Thank you, <strong class="wt" style="color:#fff;-webkit-text-fill-color:#ffffff;font-weight:600">${name}</strong>.
               Your enquiry has been received and is in the right hands.
             </p>
@@ -152,15 +152,15 @@ module.exports = async function handler(req, res) {
               <tr>
                 <td style="padding-right:32px;border-right:1px solid rgba(255,255,255,0.14)">
                   <p class="wt" style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:800;color:#fff;-webkit-text-fill-color:#ffffff;line-height:1;margin:0">2021</p>
-                  <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin:5px 0 0">Founded</p>
+                  <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#738a73;-webkit-text-fill-color:#738a73;margin:5px 0 0">Founded</p>
                 </td>
                 <td style="padding:0 32px;border-right:1px solid rgba(255,255,255,0.14)">
                   <p class="wt" style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:800;color:#fff;-webkit-text-fill-color:#ffffff;line-height:1;margin:0">11</p>
-                  <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin:5px 0 0">Specialists</p>
+                  <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#738a73;-webkit-text-fill-color:#738a73;margin:5px 0 0">Specialists</p>
                 </td>
                 <td style="padding-left:32px">
                   <p class="gt" style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:800;color:${GOLD_LT};-webkit-text-fill-color:${GOLD_LT};line-height:1;margin:0">L1</p>
-                  <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin:5px 0 0">B&#8209;BBEE</p>
+                  <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#738a73;-webkit-text-fill-color:#738a73;margin:5px 0 0">B&#8209;BBEE</p>
                 </td>
               </tr>
             </table>
@@ -238,7 +238,7 @@ module.exports = async function handler(req, res) {
           <p class="wt" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:15px;color:#fff;-webkit-text-fill-color:#ffffff;font-weight:500;margin:0">
             <a href="tel:0360040024" class="gt" style="color:${GOLD_LT};-webkit-text-fill-color:${GOLD_LT};font-weight:700;text-decoration:none">036 004 0024</a>
             &nbsp;&nbsp;&middot;&nbsp;&nbsp;
-            <a href="mailto:info@iyadiplanningsolutions.com" style="color:rgba(255,255,255,0.55);font-size:13px;text-decoration:none">info@iyadiplanningsolutions.com</a>
+            <a href="mailto:info@iyadiplanningsolutions.com" style="color:#95a795;-webkit-text-fill-color:#95a795;font-size:13px;text-decoration:none">info@iyadiplanningsolutions.com</a>
           </p>
         </td></tr>
       </table>
@@ -253,12 +253,12 @@ module.exports = async function handler(req, res) {
 
     <!-- ── FOOTER ── -->
     <tr><td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};-webkit-text-fill-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});padding:22px 44px;text-align:center">
-      <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:11px;color:rgba(255,255,255,0.35);line-height:1.8;margin:0">
+      <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:11px;color:#6a826a;-webkit-text-fill-color:#6a826a;line-height:1.8;margin:0">
         45 Queen Street, Office No.&nbsp;6 &middot; Ladysmith, 3370 &middot; KwaZulu-Natal<br/>
         <a href="https://www.iyadiplanningsolutions.com" class="gt" style="color:${GOLD};-webkit-text-fill-color:${GOLD};text-decoration:none">iyadiplanningsolutions.com</a>
         &nbsp;&middot;&nbsp; Reg 2021/652941/07 &nbsp;&middot;&nbsp; B&#8209;BBEE Level&nbsp;1
       </p>
-      <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:10px;color:rgba(255,255,255,0.2);margin:10px 0 0">
+      <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:10px;color:#4d654d;-webkit-text-fill-color:#4d654d;margin:10px 0 0">
         &copy; ${year} Iyadi Planning Solutions (Pty) Ltd. Automated confirmation &mdash; do not reply.
       </p>
     </td></tr>
@@ -318,7 +318,7 @@ module.exports = async function handler(req, res) {
                 </td>
                 <td style="padding-left:14px;vertical-align:middle">
                   <p class="gt" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:9px;letter-spacing:0.26em;text-transform:uppercase;color:${GOLD};-webkit-text-fill-color:${GOLD};font-weight:600;margin:0">Internal notification</p>
-                  <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin:4px 0 0">iyadiplanningsolutions.com</p>
+                  <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#738a73;-webkit-text-fill-color:#738a73;margin:4px 0 0">iyadiplanningsolutions.com</p>
                 </td>
               </tr>
             </table>
@@ -417,10 +417,10 @@ module.exports = async function handler(req, res) {
     <!-- ── FOOTER ── -->
     <tr><td bgcolor="${G_DEEP}" class="em-hero"
       style="background-color:${G_DEEP};-webkit-text-fill-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});padding:22px 44px;text-align:center">
-      <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:10px;color:rgba(255,255,255,0.3);line-height:1.8;margin:0">
+      <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:10px;color:#5f7a5f;-webkit-text-fill-color:#5f7a5f;line-height:1.8;margin:0">
         Iyadi Planning Solutions (Pty) Ltd &nbsp;&middot;&nbsp; Ladysmith, KwaZulu-Natal<br/>
         Reg 2021/652941/07 &nbsp;&middot;&nbsp; B&#8209;BBEE Level 1<br/>
-        <span style="color:rgba(255,255,255,0.18)">Automated internal notification.</span>
+        <span style="color:#496149;-webkit-text-fill-color:#496149">Automated internal notification.</span>
       </p>
     </td></tr>
 
