@@ -111,7 +111,7 @@ module.exports = async function handler(req, res) {
 
             <!-- headline -->
             <p class="wt" style="font-family:'Playfair Display',Georgia,serif;font-size:50px;
-               font-weight:900;line-height:1.02;color:#ffffff;-webkit-text-fill-color:#ffffff;margin:14px 0 0;letter-spacing:-0.02em">
+               font-weight:900;line-height:1.02;color:#fffffe;-webkit-text-fill-color:#fffffe;margin:14px 0 0;letter-spacing:-0.02em">
               We&rsquo;ve got<br/>
               <span class="gt" style="color:${GOLD_LT};-webkit-text-fill-color:${GOLD_LT};font-style:italic">your message.</span>
             </p>
@@ -119,7 +119,7 @@ module.exports = async function handler(req, res) {
             <!-- subline -->
             <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:15px;
                color:#aebaae;-webkit-text-fill-color:#aebaae;line-height:1.7;margin:18px 0 0;font-weight:300">
-              Thank you, <strong class="wt" style="color:#fff;-webkit-text-fill-color:#ffffff;font-weight:600">${name}</strong>.
+              Thank you, <strong class="wt" style="color:#fffffe;-webkit-text-fill-color:#fffffe;font-weight:600">${name}</strong>.
               Your enquiry has been received and is in the right hands.
             </p>
 
@@ -151,11 +151,11 @@ module.exports = async function handler(req, res) {
             <table cellpadding="0" cellspacing="0" role="presentation">
               <tr>
                 <td style="padding-right:32px;border-right:1px solid rgba(255,255,255,0.14)">
-                  <p class="wt" style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:800;color:#fff;-webkit-text-fill-color:#ffffff;line-height:1;margin:0">2021</p>
+                  <p class="wt" style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:800;color:#fffffe;-webkit-text-fill-color:#fffffe;line-height:1;margin:0">2021</p>
                   <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#738a73;-webkit-text-fill-color:#738a73;margin:5px 0 0">Founded</p>
                 </td>
                 <td style="padding:0 32px;border-right:1px solid rgba(255,255,255,0.14)">
-                  <p class="wt" style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:800;color:#fff;-webkit-text-fill-color:#ffffff;line-height:1;margin:0">11</p>
+                  <p class="wt" style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:800;color:#fffffe;-webkit-text-fill-color:#fffffe;line-height:1;margin:0">11</p>
                   <p style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#738a73;-webkit-text-fill-color:#738a73;margin:5px 0 0">Specialists</p>
                 </td>
                 <td style="padding-left:32px">
@@ -178,7 +178,7 @@ module.exports = async function handler(req, res) {
     </td></tr>
 
     <!-- ── BODY ── -->
-    <tr><td bgcolor="${PAPER}" class="em-paper" style="background-color:${PAPER};padding:48px 44px 40px">
+    <tr><td bgcolor="${PAPER}" class="em-paper" style="background-color:${PAPER};background-image:linear-gradient(${PAPER},${PAPER});padding:48px 44px 40px">
 
       <p class="it" style="font-family:'Playfair Display',Georgia,serif;font-size:24px;
          font-weight:800;color:${INK};-webkit-text-fill-color:${INK};line-height:1.2;margin:0 0 24px">
@@ -188,7 +188,7 @@ module.exports = async function handler(req, res) {
       <!-- steps -->
       <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
         <tr><td bgcolor="${PAPER}" class="em-paper"
-          style="background-color:${PAPER};padding:14px 0;border-bottom:1px solid rgba(13,13,13,0.08)">
+          style="background-color:${PAPER};background-image:linear-gradient(${PAPER},${PAPER});padding:14px 0;border-bottom:1px solid rgba(13,13,13,0.08)">
           <table cellpadding="0" cellspacing="0" role="presentation">
             <tr>
               <td width="40" valign="top">
@@ -202,7 +202,7 @@ module.exports = async function handler(req, res) {
           </table>
         </td></tr>
         <tr><td bgcolor="${PAPER}" class="em-paper"
-          style="background-color:${PAPER};padding:14px 0;border-bottom:1px solid rgba(13,13,13,0.08)">
+          style="background-color:${PAPER};background-image:linear-gradient(${PAPER},${PAPER});padding:14px 0;border-bottom:1px solid rgba(13,13,13,0.08)">
           <table cellpadding="0" cellspacing="0" role="presentation">
             <tr>
               <td width="40" valign="top">
@@ -216,7 +216,7 @@ module.exports = async function handler(req, res) {
           </table>
         </td></tr>
         <tr><td bgcolor="${PAPER}" class="em-paper"
-          style="background-color:${PAPER};padding:14px 0">
+          style="background-color:${PAPER};background-image:linear-gradient(${PAPER},${PAPER});padding:14px 0">
           <table cellpadding="0" cellspacing="0" role="presentation">
             <tr>
               <td width="40" valign="top">
@@ -235,7 +235,7 @@ module.exports = async function handler(req, res) {
       <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin-top:32px">
         <tr><td bgcolor="${G_DEEP}" class="em-hero" style="background-color:${G_DEEP};-webkit-text-fill-color:${G_DEEP};background-image:linear-gradient(${G_DEEP},${G_DEEP});border-radius:8px;padding:18px 22px">
           <p class="gt" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:${GOLD};-webkit-text-fill-color:${GOLD};font-weight:700;margin:0 0 8px">Need to reach us now?</p>
-          <p class="wt" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:15px;color:#fff;-webkit-text-fill-color:#ffffff;font-weight:500;margin:0">
+          <p class="wt" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:15px;color:#fffffe;-webkit-text-fill-color:#fffffe;font-weight:500;margin:0">
             <a href="tel:0360040024" class="gt" style="color:${GOLD_LT};-webkit-text-fill-color:${GOLD_LT};font-weight:700;text-decoration:none">036 004 0024</a>
             &nbsp;&nbsp;&middot;&nbsp;&nbsp;
             <a href="mailto:info@iyadiplanningsolutions.com" style="color:#95a795;-webkit-text-fill-color:#95a795;font-size:13px;text-decoration:none">info@iyadiplanningsolutions.com</a>
@@ -246,7 +246,7 @@ module.exports = async function handler(req, res) {
     </td></tr>
 
     <!-- ── SIGN-OFF ── -->
-    <tr><td bgcolor="${WARM}" class="em-warm" style="background-color:${WARM};padding:28px 44px;border-top:3px solid ${GOLD}">
+    <tr><td bgcolor="${WARM}" class="em-warm" style="background-color:${WARM};background-image:linear-gradient(${WARM},${WARM});padding:28px 44px;border-top:3px solid ${GOLD}">
       <p style="font-family:'Playfair Display',Georgia,serif;font-size:19px;font-weight:800;color:${G_DEEP};-webkit-text-fill-color:${G_DEEP};margin:0">The Iyadi Team</p>
       <p class="gt" style="font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:${GOLD};-webkit-text-fill-color:${GOLD};margin:6px 0 0">Reaching New Heights</p>
     </td></tr>
@@ -324,7 +324,7 @@ module.exports = async function handler(req, res) {
             </table>
 
             <!-- headline -->
-            <p class="wt" style="font-family:'Playfair Display',Georgia,serif;font-size:38px;font-weight:900;color:#fff;-webkit-text-fill-color:#ffffff;line-height:1.05;margin:24px 0 0;letter-spacing:-0.02em">
+            <p class="wt" style="font-family:'Playfair Display',Georgia,serif;font-size:38px;font-weight:900;color:#fffffe;-webkit-text-fill-color:#fffffe;line-height:1.05;margin:24px 0 0;letter-spacing:-0.02em">
               New Enquiry<br/>
               <span class="gt" style="color:${GOLD_LT};-webkit-text-fill-color:${GOLD_LT};font-style:italic">${name}</span>
             </p>
@@ -342,13 +342,13 @@ module.exports = async function handler(req, res) {
     </td></tr>
 
     <!-- ── DETAILS — single <td>, one nested table, consistent 2-col structure ── -->
-    <tr><td bgcolor="${PAPER}" class="em-paper" style="background-color:${PAPER};padding:0">
+    <tr><td bgcolor="${PAPER}" class="em-paper" style="background-color:${PAPER};background-image:linear-gradient(${PAPER},${PAPER});padding:0">
 
       <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
 
         <!-- section label -->
         <tr><td colspan="2" bgcolor="${PAPER}" class="em-paper"
-          style="background-color:${PAPER};padding:32px 44px 18px">
+          style="background-color:${PAPER};background-image:linear-gradient(${PAPER},${PAPER});padding:32px 44px 18px">
           <p style="font-family:'Space Mono',monospace,Arial;font-size:9px;letter-spacing:0.28em;
              text-transform:uppercase;color:${G_PILL};-webkit-text-fill-color:${G_PILL};font-weight:700;
              border-bottom:2px solid ${GOLD};padding-bottom:6px;display:inline-block;margin:0">
@@ -376,7 +376,7 @@ module.exports = async function handler(req, res) {
 
         <!-- message label -->
         <tr><td colspan="2" bgcolor="${PAPER}" class="em-paper"
-          style="background-color:${PAPER};padding:24px 44px 12px;border-top:1px solid rgba(13,13,13,0.06)">
+          style="background-color:${PAPER};background-image:linear-gradient(${PAPER},${PAPER});padding:24px 44px 12px;border-top:1px solid rgba(13,13,13,0.06)">
           <p style="font-family:'Space Mono',monospace,Arial;font-size:9px;letter-spacing:0.28em;
              text-transform:uppercase;color:${G_PILL};-webkit-text-fill-color:${G_PILL};font-weight:700;
              border-bottom:2px solid ${GOLD};padding-bottom:6px;display:inline-block;margin:0">
@@ -386,7 +386,7 @@ module.exports = async function handler(req, res) {
 
         <!-- message content with gold left border -->
         <tr><td colspan="2" bgcolor="${PAPER}" class="em-paper"
-          style="background-color:${PAPER};padding:0 44px 40px">
+          style="background-color:${PAPER};background-image:linear-gradient(${PAPER},${PAPER});padding:0 44px 40px">
           <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
             <tr>
               <td width="3" bgcolor="${GOLD}" class="em-gold"
@@ -403,9 +403,9 @@ module.exports = async function handler(req, res) {
 
     <!-- ── CTA ── -->
     <tr><td bgcolor="${WARM}" class="em-warm"
-      style="background-color:${WARM};padding:28px 44px;text-align:center;border-top:3px solid ${GOLD}">
+      style="background-color:${WARM};background-image:linear-gradient(${WARM},${WARM});padding:28px 44px;text-align:center;border-top:3px solid ${GOLD}">
       <a href="mailto:${email}?subject=Re%3A%20Your%20Iyadi%20Planning%20Solutions%20Enquiry&body=Dear%20${encodeURIComponent(name)}%2C%0A%0AThank%20you%20for%20your%20interest."
-        style="display:inline-block;background-color:${G_MID};background-image:linear-gradient(${G_MID},${G_MID});color:#fff;-webkit-text-fill-color:#ffffff;
+        style="display:inline-block;background-color:${G_MID};background-image:linear-gradient(${G_MID},${G_MID});color:#fffffe;-webkit-text-fill-color:#fffffe;
                font-family:'Plus Jakarta Sans',Arial,sans-serif;font-weight:700;
                font-size:13px;letter-spacing:0.08em;text-transform:uppercase;
                padding:16px 40px;border-radius:100px;text-decoration:none">
