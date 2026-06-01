@@ -579,3 +579,48 @@ section{ position:relative; }
   .brand .bt small{ display:none; }
 }
 .vmv-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+
+/* ============================================================
+   MOBILE FIXES  (added)
+   ============================================================ */
+
+/* A. Kill horizontal scroll on every page (iOS-safe: clip both html & body) */
+html{ overflow-x:clip; }
+body{ overflow-x:clip; max-width:100%; }
+
+/* B. Long unbreakable strings (emails, URLs) must wrap, not widen the page */
+.cinfo .v a, .foot-col a, .foot-col p, .fdesc,
+.cta-band .ph a, .menu-foot span{
+  overflow-wrap:anywhere; word-break:break-word;
+}
+
+@media (max-width:760px){
+  /* C. Home hero: drop content below the fixed nav so the eyebrow line
+        and the logo can never overlap */
+  .hero{ align-items:flex-start; min-height:auto;
+    padding-top:calc(var(--nav-h) + 26px); padding-bottom:56px; }
+  .hero-content{ max-width:100%; }
+  .hero h1{ max-width:100%; }
+
+  /* D. Inner page heroes (about / contact / going green): same nav buffer
+        so the lead paragraph stops sliding under the header */
+  .page-hero{ align-items:flex-start; min-height:auto;
+    padding-top:calc(var(--nav-h) + 26px); padding-bottom:48px; }
+
+  /* E. Force every INLINE two-column grid to stack. These have no media
+        query of their own (home intro, about "Our purpose" + founder, etc.) */
+  section .wrap > div[style*="grid-template-columns"]{
+    grid-template-columns:1fr !important;
+    gap:28px !important;
+  }
+
+  /* F. Going Green statement: the card was clipped inside a fixed-height
+        image. Stack image above text and let the card flow naturally. */
+  .gg-figure{ overflow:visible !important; border-radius:0 !important; }
+  .gg-figure > img{ height:230px !important; border-radius:16px; }
+  .gg-figure .gg-tint{ inset:0 0 auto 0 !important; height:230px !important;
+    border-radius:16px; }
+  .gg-overlay{ position:static !important; padding:0 !important; margin-top:18px; }
+  .gg-overlay .glass-card{ max-width:100% !important; background:var(--green-ink);
+    backdrop-filter:none; border-color:rgba(255,255,255,.18); }
+}
