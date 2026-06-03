@@ -268,9 +268,16 @@ module.exports = async function handler(req, res) {
       html: autoReplyHtml,
     });
 
+    // ADMIN_EMAIL may hold one address or several, comma-separated.
+    // e.g. "mongezishabangu@gmail.com, info@iyadiplanningsolutions.com"
+    const adminRecipients = (process.env.ADMIN_EMAIL || '')
+      .split(',')
+      .map((e) => e.trim())
+      .filter(Boolean);
+
     await resend.emails.send({
       from: 'Iyadi Website <noreply@iyadiplanningsolutions.com>',
-      to: process.env.ADMIN_EMAIL,
+      to: adminRecipients,
       reply_to: email,
       subject: `New enquiry: ${name} — ${svc}`,
       html: internalHtml,
