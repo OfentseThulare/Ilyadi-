@@ -439,6 +439,25 @@ section{ position:relative; }
 .cert.feature .vbadge{ background:rgba(255,255,255,.14); }
 
 /* ============================================================
+   PROFESSION CATEGORIES (icon cards)
+   ============================================================ */
+.prof-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+.prof{ border:1px solid var(--line); border-radius:14px; padding:clamp(22px,2.4vw,30px);
+  background:var(--paper); position:relative; overflow:hidden;
+  transition:transform .45s var(--ease-out), box-shadow .45s, border-color .45s; }
+.prof:hover{ transform:translateY(-6px); border-color:transparent;
+  box-shadow:0 30px 60px -34px rgba(13,13,13,.4); }
+.prof .pic{ width:56px; height:56px; border-radius:13px; background:var(--sage);
+  display:grid; place-items:center; margin-bottom:20px; transition:background .4s; }
+.prof:hover .pic{ background:var(--green-deep); }
+.prof .pic svg{ width:28px; height:28px; stroke:var(--green-deep); transition:stroke .4s; }
+.prof:hover .pic svg{ stroke:var(--gold-2); }
+.prof h3{ font-size:1.12rem; line-height:1.25; }
+.prof p{ color:var(--ink-2); font-size:.9rem; margin-top:8px; line-height:1.5; }
+.prof .ln{ height:2px; width:30px; background:var(--gold); margin-top:16px; transition:width .5s var(--ease-out); }
+.prof:hover .ln{ width:56px; }
+
+/* ============================================================
    TEAM
    ============================================================ */
 .team-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
@@ -575,6 +594,7 @@ section{ position:relative; }
 @media (max-width:1100px){
   .nav-links a{ padding:10px 9px; font-size:.78rem; }
   .why-grid,.commit-grid,.team-grid{ grid-template-columns:1fr 1fr; }
+  .prof-grid{ grid-template-columns:repeat(2,1fr); }
   .cert-grid{ grid-template-columns:repeat(2,1fr); }
   .stats-grid{ grid-template-columns:1fr 1fr; }
   .reg-band{ grid-template-columns:1fr 1fr; }
@@ -593,6 +613,7 @@ section{ position:relative; }
 }
 @media (max-width:560px){
   .why-grid,.cert-grid,.team-grid,.stats-grid,.commit-grid,.reg-band,.fgrid{ grid-template-columns:1fr; }
+  .prof-grid{ grid-template-columns:1fr 1fr; }
   .cert.feature{ grid-column:span 1; }
   .hero-sub{ flex-direction:column; align-items:flex-start; }
   .scroll-cue{ display:none; }
