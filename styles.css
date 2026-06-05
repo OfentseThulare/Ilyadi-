@@ -551,6 +551,12 @@ section{ position:relative; }
 .footer-top{ display:grid; grid-template-columns:1.5fr 1fr 1.2fr; gap:40px; padding-bottom:48px; }
 .footer .brand .bt b{ color:#fff; } .footer .brand .bt small{ color:var(--gold-2); }
 .footer .fdesc{ color:rgba(255,255,255,.72); font-size:.94rem; margin-top:20px; max-width:34ch; }
+.foot-social{ display:flex; gap:12px; margin-top:24px; }
+.foot-social a{ width:42px; height:42px; border-radius:50%; border:1px solid rgba(255,255,255,.22);
+  display:grid; place-items:center; transition:background .35s var(--ease-out), border-color .35s, transform .35s var(--ease-out); }
+.foot-social a:hover{ background:var(--gold); border-color:var(--gold); transform:translateY(-3px); }
+.foot-social a svg{ fill:#fff; transition:fill .35s; }
+.foot-social a:hover svg{ fill:var(--green-deep); }
 .foot-col h5{ font-family:var(--font-mono); font-size:.66rem; letter-spacing:.16em;
   text-transform:uppercase; color:rgba(255,255,255,.5); margin-bottom:16px; }
 .foot-col a,.foot-col p{ display:block; color:rgba(255,255,255,.8); padding:6px 0; font-size:.92rem;
