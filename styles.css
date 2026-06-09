@@ -375,7 +375,7 @@ section{ position:relative; }
 .svc-desc{ color:var(--ink-2); font-size:.96rem; max-width:54ch; margin-top:6px; }
 .svc-expand{ max-height:0; overflow:hidden; opacity:0; transition:max-height .55s var(--ease-out), opacity .4s; }
 .svc:hover .svc-expand,
-.svc.active .svc-expand{ max-height:120px; opacity:1; margin-top:10px; }
+.svc.active .svc-expand{ max-height:700px; opacity:1; margin-top:10px; }
 .svc-expand a{ display:inline-flex; align-items:center; gap:8px; font-weight:700; font-size:.84rem;
   color:var(--gold-2); margin-top:10px; }
 .svc:hover, .svc:hover .svc-desc, .svc:hover .svc-no,
