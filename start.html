@@ -130,7 +130,7 @@
           <p class="werr" id="werr1">Please select a service type to continue.</p>
           <div class="spick-grid">
             <label class="spick">
-              <input type="radio" name="wservice" value="Town Planning Services"/>
+              <input type="checkbox" name="wservice" value="Town Planning Services"/>
               <div class="spick-card">
                 <span class="spick-num">01</span>
                 <span class="spick-label">Town Planning</span>
@@ -138,7 +138,7 @@
               </div>
             </label>
             <label class="spick">
-              <input type="radio" name="wservice" value="Architectural Services"/>
+              <input type="checkbox" name="wservice" value="Architectural Services"/>
               <div class="spick-card">
                 <span class="spick-num">02</span>
                 <span class="spick-label">Architecture</span>
@@ -146,7 +146,7 @@
               </div>
             </label>
             <label class="spick">
-              <input type="radio" name="wservice" value="Construction &amp; Project Management"/>
+              <input type="checkbox" name="wservice" value="Construction &amp; Project Management"/>
               <div class="spick-card">
                 <span class="spick-num">03</span>
                 <span class="spick-label">Construction &amp; PM</span>
@@ -154,7 +154,7 @@
               </div>
             </label>
             <label class="spick">
-              <input type="radio" name="wservice" value="Economic Development"/>
+              <input type="checkbox" name="wservice" value="Economic Development"/>
               <div class="spick-card">
                 <span class="spick-num">04</span>
                 <span class="spick-label">Economic Development</span>
@@ -162,7 +162,7 @@
               </div>
             </label>
             <label class="spick">
-              <input type="radio" name="wservice" value="GIS Services"/>
+              <input type="checkbox" name="wservice" value="GIS Services"/>
               <div class="spick-card">
                 <span class="spick-num">05</span>
                 <span class="spick-label">GIS &amp; Mapping</span>
@@ -170,13 +170,24 @@
               </div>
             </label>
             <label class="spick">
-              <input type="radio" name="wservice" value="Multiple / Full Scope"/>
+              <input type="checkbox" name="wservice" value="Multiple / Full Scope"/>
               <div class="spick-card">
                 <span class="spick-num">06</span>
                 <span class="spick-label">Full Scope</span>
                 <span class="spick-desc">Comprehensive multi-disciplinary project across services</span>
               </div>
             </label>
+            <label class="spick">
+              <input type="checkbox" name="wservice" value="Other" id="wservice-other"/>
+              <div class="spick-card">
+                <span class="spick-num">07</span>
+                <span class="spick-label">Other</span>
+                <span class="spick-desc">Not listed above? Type your own project description below</span>
+              </div>
+            </label>
+          </div>
+          <div id="w-custom-wrap" style="display:none;margin-bottom:24px">
+            <div class="field full"><input type="text" id="w-custom" placeholder=" "/><label for="w-custom">Describe your project type</label></div>
           </div>
           <div class="wnav">
             <div></div>
@@ -289,6 +300,12 @@
     wShow(from+1);
   };
   window.wPrev=function(from){wShow(from-1);};
+  var otherCb=document.getElementById('wservice-other');
+  if(otherCb){otherCb.addEventListener('change',function(){
+    var wrap=document.getElementById('w-custom-wrap');
+    wrap.style.display=this.checked?'block':'none';
+    if(!this.checked)document.getElementById('w-custom').value='';
+  });}
   document.getElementById('w-submit').addEventListener('click',async function(){
     var msg=document.getElementById('w-msg').value.trim();
     if(!msg){document.getElementById('werr3').classList.add('show');return;}
@@ -296,7 +313,12 @@
     var btn=this;
     btn.disabled=true;
     btn.textContent='Sending…';
-    var service=(document.querySelector('input[name="wservice"]:checked')||{value:'Not specified'}).value;
+    var checkedBoxes=document.querySelectorAll('input[name="wservice"]:checked');
+    var services=Array.prototype.slice.call(checkedBoxes).map(function(el){return el.value;});
+    var customVal=document.getElementById('w-custom').value.trim();
+    var otherIdx=services.indexOf('Other');
+    if(customVal&&otherIdx>=0){services[otherIdx]=customVal;}else if(customVal){services.push(customVal);}
+    var service=services.length?services.join(', '):'Not specified';
     var loc=document.getElementById('w-location').value.trim();
     var tl=document.getElementById('w-timeline').value;
     var full='Service: '+service+'\nLocation: '+(loc||'Not provided')+'\nTimeline: '+(tl||'Not specified')+'\n\n'+msg;
