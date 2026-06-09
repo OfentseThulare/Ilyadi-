@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Start Your Project | Iyadi Planning Solutions</title>
+<meta name="description" content="Begin your planning, development, or architectural project with Iyadi Planning Solutions. Three quick steps gets your brief to our team immediately."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css?v=7"/>
+<style>
+.wiz-card{max-width:800px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 24px 80px -32px rgba(0,0,0,.14)}
+.wiz-track{display:flex;align-items:center;padding:28px 40px;border-bottom:1px solid var(--line)}
+@media(max-width:600px){.wiz-track{padding:20px 24px}}
+.wt-step{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.wt-dot{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:.68rem;color:var(--ink-2);transition:all .4s var(--ease-out);background:var(--paper);flex-shrink:0}
+.wt-label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);transition:color .4s;white-space:nowrap}
+@media(max-width:520px){.wt-label{display:none}}
+.wt-line{flex:1;height:1px;background:var(--line);margin:0 12px;transition:background .5s}
+.wt-step.act .wt-dot{background:var(--green);border-color:var(--green);color:#fff}
+.wt-step.act .wt-label{color:var(--green)}
+.wt-step.done .wt-dot{background:var(--green);border-color:var(--green);color:#fff}
+.wt-step.done::after{display:none}
+.wt-line.done{background:var(--green)}
+.wiz-body{padding:48px 40px}
+@media(max-width:600px){.wiz-body{padding:32px 24px}}
+.wstep{display:none}.wstep.act{display:block}
+.spick-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:36px}
+@media(max-width:480px){.spick-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:340px){.spick-grid{grid-template-columns:1fr}}
+.spick{cursor:pointer;display:block}
+.spick input[type="radio"]{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.spick-card{display:flex;flex-direction:column;gap:9px;padding:20px;border:1.5px solid var(--line);border-radius:14px;transition:border-color .3s,background .3s,box-shadow .3s,transform .25s var(--ease-out);background:var(--paper)}
+.spick:hover .spick-card{border-color:rgba(43,122,43,.5);transform:translateY(-2px)}
+.spick input:checked + .spick-card{border-color:var(--green);background:rgba(43,122,43,.06);box-shadow:0 0 0 1.5px var(--green)}
+.spick-num{font-family:var(--font-mono);font-size:.65rem;color:var(--green);letter-spacing:.12em}
+.spick-label{font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--ink);line-height:1.25}
+.spick-desc{font-size:.78rem;color:var(--ink-2);line-height:1.55}
+.ws-eye{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.ws-h{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.2rem);color:var(--ink);margin:0 0 8px;line-height:1.2}
+.ws-sub{color:var(--ink-2);font-size:.95rem;margin:0 0 30px;line-height:1.6}
+.wnav{display:flex;justify-content:space-between;align-items:center;margin-top:30px;gap:12px;flex-wrap:wrap}
+.wnav-back{background:none;border:1.5px solid var(--line);border-radius:10px;padding:12px 22px;font-size:.88rem;font-weight:600;color:var(--ink-2);cursor:pointer;transition:border-color .3s,color .3s;font-family:inherit;letter-spacing:.02em}
+.wnav-back:hover{border-color:var(--ink);color:var(--ink)}
+.werr{display:none;font-size:.78rem;color:#c0392b;font-family:var(--font-mono);letter-spacing:.04em;padding:10px 14px;background:rgba(192,57,43,.08);border-radius:8px;margin-bottom:18px}
+.werr.show{display:block}
+</style>
+</head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="mark" viewBox="0 0 120 96">
+  <path d="M8 64C22 34 46 22 60 22C76 22 100 36 112 64" fill="none" stroke="#2b7a2b" stroke-width="7" stroke-linecap="round"/>
+  <path d="M22 75C32 53 48 43 60 43C74 43 90 53 99 75" fill="none" stroke="#37a437" stroke-width="5" stroke-linecap="round" opacity=".5"/>
+  <rect x="42" y="54" width="12" height="28" fill="#2b7a2b"/>
+  <rect x="56" y="42" width="14" height="40" fill="#c9a327"/>
+  <rect x="72" y="48" width="11" height="34" fill="#c9a327"/>
+  <rect x="61" y="30" width="4" height="52" fill="#c9a327"/>
+  <rect x="33" y="82" width="62" height="4" rx="2" fill="#2b7a2b"/>
+</symbol>
+<symbol id="mark-light" viewBox="0 0 120 96">
+  <path d="M8 64C22 34 46 22 60 22C76 22 100 36 112 64" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+  <path d="M22 75C32 53 48 43 60 43C74 43 90 53 99 75" fill="none" stroke="#e3c265" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+  <rect x="42" y="54" width="12" height="28" fill="#ffffff"/>
+  <rect x="56" y="42" width="14" height="40" fill="#e3c265"/>
+  <rect x="72" y="48" width="11" height="34" fill="#e3c265"/>
+  <rect x="61" y="30" width="4" height="52" fill="#e3c265"/>
+  <rect x="33" y="82" width="62" height="4" rx="2" fill="#ffffff"/>
+</symbol>
+</defs></svg>
+<div class="page-fade" id="pageFade"></div>
+<div class="cursor" id="cursor"></div><div class="cursor-dot" id="cursorDot"></div>
+<div class="scroll-prog" id="scrollProg"></div>
+<header class="nav" id="nav"><div class="wrap">
+  <a href="index.html" class="brand" data-cursor>
+    <img class="mark" src="brand/iyadi-logo.png" alt="Iyadi Planning Solutions logo"/>
+    <span class="bt"><b>IYADI</b><small>Planning Solutions</small></span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a>
+    <a href="certifications.html">Certifications</a><a href="why-choose-us.html">Why Us</a><a href="going-green.html">Going Green</a>
+  </nav>
+  <a href="contact.html" class="nav-cta mag" data-cursor><span class="dot"></span>Contact Us</a>
+  <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span></button>
+</div></header>
+<nav class="menu" id="menu">
+  <a href="index.html"><span class="n">01</span>Home</a><a href="about.html"><span class="n">02</span>About</a>
+  <a href="services.html"><span class="n">03</span>Services</a><a href="certifications.html"><span class="n">04</span>Certifications</a>
+  <a href="why-choose-us.html"><span class="n">05</span>Why Us</a><a href="going-green.html"><span class="n">06</span>Going Green</a>
+  <a href="contact.html"><span class="n">07</span>Contact</a>
+  <div class="menu-foot"><span>036 004 0024</span><span>South Africa</span><span>B-BBEE LEVEL 1</span></div>
+</nav><main>
+
+<section class="page-hero" style="min-height:42vh">
+  <div class="ph-photo"><img data-parallax="0.1" data-base="1.1" src="brand/photo-meeting.jpg" alt=""/></div>
+  <div class="bp-grid"></div>
+  <div class="wrap">
+    <div class="crumb" data-reveal="fade"><a href="index.html">Home</a><span class="sep">/</span><span>Start your project</span></div>
+    <p class="eyebrow" data-reveal="fade">Project intake</p>
+    <h1 class="kinetic" data-split style="margin-top:16px">Let&rsquo;s build <span class="gold">something.</span></h1>
+    <p class="lead" data-reveal data-delay style="--d:.2s">Three quick steps &mdash; tell us about your project and we&rsquo;ll come prepared for a focused first conversation.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="wiz-card">
+
+      <!-- Progress tracker -->
+      <div class="wiz-track">
+        <div class="wt-step act" id="wts1">
+          <div class="wt-dot">01</div>
+          <span class="wt-label">Service</span>
+        </div>
+        <div class="wt-line" id="wtl1"></div>
+        <div class="wt-step" id="wts2">
+          <div class="wt-dot">02</div>
+          <span class="wt-label">Details</span>
+        </div>
+        <div class="wt-line" id="wtl2"></div>
+        <div class="wt-step" id="wts3">
+          <div class="wt-dot">03</div>
+          <span class="wt-label">Project</span>
+        </div>
+      </div>
+
+      <div class="wiz-body">
+
+        <!-- Step 1 — Service type -->
+        <div class="wstep act" id="ws1">
+          <p class="ws-eye">Step 1 of 3</p>
+          <h2 class="ws-h">What type of project?</h2>
+          <p class="ws-sub">Select the service that best describes your needs. You can elaborate in step 3.</p>
+          <p class="werr" id="werr1">Please select a service type to continue.</p>
+          <div class="spick-grid">
+            <label class="spick">
+              <input type="radio" name="wservice" value="Town Planning Services"/>
+              <div class="spick-card">
+                <span class="spick-num">01</span>
+                <span class="spick-label">Town Planning</span>
+                <span class="spick-desc">Township establishment, rezoning &amp; strategic policy planning</span>
+              </div>
+            </label>
+            <label class="spick">
+              <input type="radio" name="wservice" value="Architectural Services"/>
+              <div class="spick-card">
+                <span class="spick-num">02</span>
+                <span class="spick-label">Architecture</span>
+                <span class="spick-desc">3D visualisation, structural detailing &amp; construction packages</span>
+              </div>
+            </label>
+            <label class="spick">
+              <input type="radio" name="wservice" value="Construction &amp; Project Management"/>
+              <div class="spick-card">
+                <span class="spick-num">03</span>
+                <span class="spick-label">Construction &amp; PM</span>
+                <span class="spick-desc">Renovations, alterations, site &amp; contract management</span>
+              </div>
+            </label>
+            <label class="spick">
+              <input type="radio" name="wservice" value="Economic Development"/>
+              <div class="spick-card">
+                <span class="spick-num">04</span>
+                <span class="spick-label">Economic Development</span>
+                <span class="spick-desc">Investment attraction, LED strategies &amp; value chain analysis</span>
+              </div>
+            </label>
+            <label class="spick">
+              <input type="radio" name="wservice" value="GIS Services"/>
+              <div class="spick-card">
+                <span class="spick-num">05</span>
+                <span class="spick-label">GIS &amp; Mapping</span>
+                <span class="spick-desc">Spatial data, 3D landscape mapping &amp; satellite imagery</span>
+              </div>
+            </label>
+            <label class="spick">
+              <input type="radio" name="wservice" value="Multiple / Full Scope"/>
+              <div class="spick-card">
+                <span class="spick-num">06</span>
+                <span class="spick-label">Full Scope</span>
+                <span class="spick-desc">Comprehensive multi-disciplinary project across services</span>
+              </div>
+            </label>
+          </div>
+          <div class="wnav">
+            <div></div>
+            <button class="btn btn-green mag" data-cursor onclick="wNext(1)">Continue <svg class="arr" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+
+        <!-- Step 2 — Contact details -->
+        <div class="wstep" id="ws2">
+          <p class="ws-eye">Step 2 of 3</p>
+          <h2 class="ws-h">Who should we contact?</h2>
+          <p class="ws-sub">We respond to every enquiry within two business days.</p>
+          <p class="werr" id="werr2">Please enter your full name and email address to continue.</p>
+          <div class="fgrid">
+            <div class="field"><input type="text" id="w-name" required placeholder=" "/><label for="w-name">Full name</label></div>
+            <div class="field"><input type="text" id="w-org" placeholder=" "/><label for="w-org">Company / Organisation</label></div>
+            <div class="field"><input type="email" id="w-email" required placeholder=" "/><label for="w-email">Email address</label></div>
+            <div class="field"><input type="tel" id="w-phone" placeholder=" "/><label for="w-phone">Phone number</label></div>
+          </div>
+          <div class="wnav">
+            <button class="wnav-back" onclick="wPrev(2)">&#8592; Back</button>
+            <button class="btn btn-green mag" data-cursor onclick="wNext(2)">Continue <svg class="arr" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+
+        <!-- Step 3 — Project brief -->
+        <div class="wstep" id="ws3">
+          <p class="ws-eye">Step 3 of 3</p>
+          <h2 class="ws-h">Tell us about your project.</h2>
+          <p class="ws-sub">The more context you give, the better we can prepare for your first call.</p>
+          <p class="werr" id="werr3">Please describe your project before submitting.</p>
+          <div class="fgrid">
+            <div class="field"><input type="text" id="w-location" placeholder=" "/><label for="w-location">Project location (city / province)</label></div>
+            <div class="field"><select id="w-timeline"><option value="" disabled selected hidden></option><option>As soon as possible</option><option>Within 1&ndash;3 months</option><option>Within 3&ndash;6 months</option><option>Flexible / Still in planning</option></select><label for="w-timeline">Preferred timeline</label></div>
+            <div class="field full"><textarea id="w-msg" required placeholder=" " style="min-height:150px"></textarea><label for="w-msg">Describe your project</label></div>
+          </div>
+          <div class="wnav">
+            <button class="wnav-back" onclick="wPrev(3)">&#8592; Back</button>
+            <button id="w-submit" class="btn mag" data-cursor style="background:var(--gold);color:#1a1306;border-color:var(--gold);font-weight:700;box-shadow:0 6px 36px rgba(201,163,39,.4),0 2px 8px rgba(201,163,39,.2)">Submit enquiry <svg class="arr" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#1a1306" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+          <div class="form-ok" id="wOk" style="display:none;margin-top:28px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2b7a2b" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Thank you &mdash; we have received your brief and will be in touch within two business days.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="footer"><div class="wrap">
+  <div class="footer-top">
+    <div>
+      <a href="index.html" class="brand" data-cursor>
+        <span class="mark-chip"><img src="brand/iyadi-logo.png" alt="Iyadi Planning Solutions logo"/></span>
+        <span class="bt"><b>IYADI</b><small>Reaching New Heights</small></span>
+      </a>
+      <p class="fdesc">A Level 1 B-BBEE planning, development and built-environment firm supporting government, developers and communities on projects across South Africa.</p>
+      <div class="foot-social">
+        <a href="https://www.facebook.com/IyadiPlanningSolutions/" target="_blank" rel="noopener" aria-label="Iyadi Planning Solutions on Facebook" data-cursor>
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H7v3h3v6h3v-6h3l1-3h-4v-2c0-.6.4-1 1-1Z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="foot-col"><h5>Explore</h5>
+      <a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a>
+      <a href="certifications.html">Certifications</a><a href="why-choose-us.html">Why Choose Us</a>
+      <a href="going-green.html">Going Green</a><a href="contact.html">Contact</a></div>
+    <div class="foot-col"><h5>Contact</h5>
+      <a href="tel:0360040024">036 004 0024</a><a href="tel:0614052204">061 405 2204</a>
+      <a href="mailto:info@iyadiplanningsolutions.co.za">info@iyadiplanningsolutions.co.za</a>
+      <a href="mailto:admin@iyadiplanningsolutions.co.za">admin@iyadiplanningsolutions.co.za</a>
+      <p>45 Queen Street, Office No. 6,<br>Ladysmith, 3370, KwaZulu-Natal</p>
+      <a href="https://www.iyadiplanningsolutions.com" target="_blank" rel="noopener">www.iyadiplanningsolutions.com</a></div>
+  </div>
+  <div class="foot-rule"></div>
+  <div class="footer-bot">
+    <span>&copy; 2026 Iyadi Planning Solutions (Pty) Ltd. All rights reserved.</span>
+    <div class="regs"><span>Reg 2021/652941/07</span><span>CIDB 990001600907</span><span class="bbee">B-BBEE Level 1</span></div>
+  </div>
+</div></footer>
+<script src="main.js?v=3"></script>
+<script>
+(function(){
+  function wShow(n){
+    for(var i=1;i<=3;i++){
+      document.getElementById('ws'+i).classList.toggle('act',i===n);
+      var t=document.getElementById('wts'+i);
+      t.classList.toggle('act',i===n);
+      t.classList.toggle('done',i<n);
+    }
+    for(var j=1;j<=2;j++){
+      var l=document.getElementById('wtl'+j);
+      if(l) l.classList.toggle('done',j<n);
+    }
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  window.wNext=function(from){
+    if(from===1){
+      if(!document.querySelector('input[name="wservice"]:checked')){
+        document.getElementById('werr1').classList.add('show');return;
+      }
+      document.getElementById('werr1').classList.remove('show');
+    }
+    if(from===2){
+      var nm=document.getElementById('w-name').value.trim();
+      var em=document.getElementById('w-email').value.trim();
+      if(!nm||!em){document.getElementById('werr2').classList.add('show');return;}
+      document.getElementById('werr2').classList.remove('show');
+    }
+    wShow(from+1);
+  };
+  window.wPrev=function(from){wShow(from-1);};
+  document.getElementById('w-submit').addEventListener('click',async function(){
+    var msg=document.getElementById('w-msg').value.trim();
+    if(!msg){document.getElementById('werr3').classList.add('show');return;}
+    document.getElementById('werr3').classList.remove('show');
+    var btn=this;
+    btn.disabled=true;
+    btn.textContent='Sending…';
+    var service=(document.querySelector('input[name="wservice"]:checked')||{value:'Not specified'}).value;
+    var loc=document.getElementById('w-location').value.trim();
+    var tl=document.getElementById('w-timeline').value;
+    var full='Service: '+service+'\nLocation: '+(loc||'Not provided')+'\nTimeline: '+(tl||'Not specified')+'\n\n'+msg;
+    try{
+      var r=await fetch('/api/send-email',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          name:document.getElementById('w-name').value,
+          email:document.getElementById('w-email').value,
+          phone:document.getElementById('w-phone').value||'',
+          org:document.getElementById('w-org').value||'',
+          service:service,
+          message:full
+        })
+      });
+      if(r.ok){
+        btn.style.display='none';
+        var ok=document.getElementById('wOk');
+        ok.style.display='flex';
+        ok.classList.add('show');
+      } else {
+        btn.disabled=false;
+        btn.innerHTML='Submit enquiry <svg class="arr" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#1a1306" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      }
+    }catch(e){
+      btn.disabled=false;
+      btn.innerHTML='Submit enquiry <svg class="arr" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#1a1306" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    }
+  });
+})();
+</script>
+</body></html>
