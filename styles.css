@@ -374,22 +374,17 @@ section{ position:relative; }
 .svc-main h3{ font-size:clamp(1.4rem,3.2vw,2.4rem); }
 .svc-desc{ color:var(--ink-2); font-size:.96rem; max-width:54ch; margin-top:6px; }
 .svc-expand{ max-height:0; overflow:hidden; opacity:0; transition:max-height .55s var(--ease-out), opacity .4s; }
-.svc:hover .svc-expand,
 .svc.active .svc-expand{ max-height:700px; opacity:1; margin-top:10px; }
 .svc-expand a{ display:inline-flex; align-items:center; gap:8px; font-weight:700; font-size:.84rem;
   color:var(--gold-2); margin-top:10px; }
 .svc:hover, .svc:hover .svc-desc, .svc:hover .svc-no,
 .svc.active, .svc.active .svc-desc, .svc.active .svc-no{ color:var(--paper); }
-.svc-arrow{ width:54px; height:54px; border-radius:50%; border:1px solid var(--line);
-  display:grid; place-items:center; transition:transform .5s var(--ease-out), border-color .4s, background .4s; }
-.svc:hover .svc-arrow,
-.svc.active .svc-arrow{ transform:rotate(-45deg); background:var(--gold); border-color:var(--gold); }
-.svc:hover .svc-arrow svg,
-.svc.active .svc-arrow svg{ stroke:#1a1306; }
-/* On touch devices, always show a visible arrow (no hover state available) */
-@media (hover:none){
-  .svc-arrow{ border-color:var(--green); opacity:1; }
-}
+.svc::after{ content:'+'; width:44px; height:44px; border-radius:50%; border:1px solid var(--line);
+  display:grid; place-items:center; font-size:1.5rem; font-weight:300; line-height:1;
+  transition:transform .5s var(--ease-out), border-color .4s, background .4s, color .4s;
+  position:relative; z-index:1; flex-shrink:0; }
+.svc:hover::after{ border-color:rgba(255,255,255,.35); color:rgba(255,255,255,.8); }
+.svc.active::after{ transform:rotate(45deg); background:var(--gold); border-color:var(--gold); color:#1a1306; }
 
 /* ---------- process timeline ---------- */
 .process{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; position:relative; }
