@@ -275,6 +275,36 @@
     });
   }
 
+  /* ---------- floating start CTA ---------- */
+  (function(){
+    var path = location.pathname.split('/').pop() || 'index.html';
+    if(path === 'start.html') return;
+    var fab = document.createElement('a');
+    fab.href = 'start.html';
+    fab.className = 'fab-cta mag';
+    fab.setAttribute('data-cursor', '');
+    fab.setAttribute('aria-label', 'Start your project');
+    fab.innerHTML = 'Start your project <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    document.body.appendChild(fab);
+    window.addEventListener('scroll', function(){
+      fab.classList.toggle('fab-visible', window.scrollY > 320);
+    }, {passive:true});
+  })();
+
+  /* ---------- service deeplink (services page) ---------- */
+  (function(){
+    var hash = location.hash;
+    if(!hash) return;
+    var target = document.querySelector(hash);
+    if(!target || !target.classList.contains('svc')) return;
+    $$('.svc').forEach(function(s){ s.classList.remove('active'); });
+    target.classList.add('active');
+    setTimeout(function(){
+      var offset = target.getBoundingClientRect().top + window.scrollY - 90;
+      window.scrollTo({top: offset, behavior: reduce ? 'auto' : 'smooth'});
+    }, 700);
+  })();
+
   /* ---------- smooth anchors ---------- */
   $$('a[href^="#"]').forEach(a=> a.addEventListener('click', e=>{ const id=a.getAttribute('href');
     if(id.length<2) return; const t=document.querySelector(id); if(!t) return; e.preventDefault();
