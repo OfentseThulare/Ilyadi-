@@ -236,6 +236,9 @@
   .pi-clip{height:clamp(180px,52vw,300px);}
 }
 /* honour reduced-motion preference */
+/* carport image — push down so pergola roof is visible */
+.p-item:nth-child(5) .pi-img{transform:scale(1.08) translateY(6%);object-position:center top;}
+.p-item:nth-child(5):hover .pi-img{transform:scale(1.05) translateY(6%);}
 @media(prefers-reduced-motion:reduce){
   .ph-img{animation:none;opacity:.8;}
   .p-item .pi-clip,.p-item .pi-n,.p-item .pi-meta,.p-item .pi-title,
@@ -408,7 +411,7 @@
       data-img="brand/portfolio/project-carport.jpg">
       <span class="pi-n">05</span>
       <div class="pi-clip">
-        <img class="pi-img" src="brand/portfolio/project-carport.jpg" alt="Residential carport and freshly laid concrete driveway" style="object-position:center 55%"/>
+        <img class="pi-img" src="brand/portfolio/project-carport.jpg" alt="Residential carport and freshly laid concrete driveway" style="object-position:center top"/>
         <div class="pi-veil"></div>
       </div>
       <div class="pi-cap">
