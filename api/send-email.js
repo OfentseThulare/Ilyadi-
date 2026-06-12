@@ -260,28 +260,36 @@ module.exports = async function handler(req, res) {
 </body>
 </html>`;
 
+  const adminRecipients = (process.env.ADMIN_EMAIL || '')
+    .split(',')
+    .map((e) => e.trim())
+    .filter(Boolean);
+
   try {
-    await resend.emails.send({
-      from: 'Iyadi Planning Solutions <info@iyadiplanningsolutions.com>',
-      to: email,
-      subject: "We've received your enquiry — Iyadi Planning Solutions",
-      html: autoReplyHtml,
-    });
+    const [autoReplyResult, adminResult] = await Promise.all([
+      resend.emails.send({
+        from: 'Iyadi Planning Solutions <info@iyadiplanningsolutions.com>',
+        to: email,
+        subject: "We've received your enquiry — Iyadi Planning Solutions",
+        html: autoReplyHtml,
+      }),
+      adminRecipients.length
+        ? resend.emails.send({
+            from: 'Iyadi Website <noreply@iyadiplanningsolutions.com>',
+            to: adminRecipients,
+            reply_to: email,
+            subject: `New enquiry: ${name} — ${svc}`,
+            html: internalHtml,
+          })
+        : Promise.resolve({ data: null, error: null }),
+    ]);
 
-    // ADMIN_EMAIL may hold one address or several, comma-separated.
-    // e.g. "mongezishabangu@gmail.com, info@iyadiplanningsolutions.com"
-    const adminRecipients = (process.env.ADMIN_EMAIL || '')
-      .split(',')
-      .map((e) => e.trim())
-      .filter(Boolean);
+    if (autoReplyResult.error) console.error('Auto-reply error:', JSON.stringify(autoReplyResult.error));
+    if (adminResult.error) console.error('Admin email error:', JSON.stringify(adminResult.error));
 
-    await resend.emails.send({
-      from: 'Iyadi Website <noreply@iyadiplanningsolutions.com>',
-      to: adminRecipients,
-      reply_to: email,
-      subject: `New enquiry: ${name} — ${svc}`,
-      html: internalHtml,
-    });
+    if (autoReplyResult.error || adminResult.error) {
+      return res.status(500).json({ error: 'Failed to send email' });
+    }
 
     return res.status(200).json({ success: true });
   } catch (err) {
