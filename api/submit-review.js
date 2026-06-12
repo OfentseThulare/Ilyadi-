@@ -42,7 +42,7 @@ module.exports = async function handler(req, res) {
   try {
     const [adminResult, thankYouResult] = await Promise.all([
       resend.emails.send({
-        from: 'Iyadi Website <noreply@iyadiplanningsolutions.co.za>',
+        from: 'Iyadi Website <noreply@iyadiplanningsolutions.com>',
         to: adminEmails,
         reply_to: email,
         subject: `New Review from ${safeName} — Iyadi Planning Solutions`,
@@ -50,7 +50,7 @@ module.exports = async function handler(req, res) {
           <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:32px 24px;background:#fafaf7;border-radius:8px;border:1px solid rgba(13,13,13,.1);">
             <div style="border-bottom:2px solid #2b7a2b;padding-bottom:16px;margin-bottom:24px;">
               <h2 style="color:#2b7a2b;margin:0;font-size:20px;">New Review Submitted</h2>
-              <p style="color:#44504a;margin:6px 0 0;font-size:13px;">Via iyadiplanningsolutions.co.za — Portfolio page</p>
+              <p style="color:#44504a;margin:6px 0 0;font-size:13px;">Via iyadiplanningsolutions.com — Portfolio page</p>
             </div>
             <table style="width:100%;border-collapse:collapse;margin-bottom:20px;">
               <tr>
@@ -79,7 +79,7 @@ module.exports = async function handler(req, res) {
         `,
       }),
       resend.emails.send({
-        from: 'Iyadi Planning Solutions <noreply@iyadiplanningsolutions.co.za>',
+        from: 'Iyadi Planning Solutions <noreply@iyadiplanningsolutions.com>',
         to: [email],
         subject: `Thank you for your review, ${safeName} — Iyadi Planning Solutions`,
         html: `
@@ -96,10 +96,10 @@ module.exports = async function handler(req, res) {
                 <p style="color:#0d0d0d;font-size:14px;line-height:1.65;margin:0;font-style:italic;">"${safeMsg}"</p>
               </div>
               <p style="color:#44504a;font-size:14px;line-height:1.72;margin:0 0 20px;">If you have any questions or need assistance with a new project, feel free to reply to this email — we would love to hear from you again.</p>
-              <a href="https://iyadiplanningsolutions.co.za/services.html" style="display:inline-block;background:#2b7a2b;color:#fff;text-decoration:none;padding:13px 28px;border-radius:6px;font-size:13px;font-weight:600;letter-spacing:.04em;">Explore Our Services</a>
+              <a href="https://iyadiplanningsolutions.com/services.html" style="display:inline-block;background:#2b7a2b;color:#fff;text-decoration:none;padding:13px 28px;border-radius:6px;font-size:13px;font-weight:600;letter-spacing:.04em;">Explore Our Services</a>
             </div>
             <div style="background:#f0f0ec;padding:24px 32px;border-radius:0 0 8px 8px;border:1px solid rgba(13,13,13,.08);border-top:none;text-align:center;">
-              <p style="color:#44504a;font-size:12px;margin:0;line-height:1.6;">Iyadi Planning Solutions &nbsp;·&nbsp; KwaZulu-Natal, South Africa<br><a href="https://iyadiplanningsolutions.co.za" style="color:#2b7a2b;text-decoration:none;">iyadiplanningsolutions.co.za</a></p>
+              <p style="color:#44504a;font-size:12px;margin:0;line-height:1.6;">Iyadi Planning Solutions &nbsp;·&nbsp; KwaZulu-Natal, South Africa<br><a href="https://iyadiplanningsolutions.com" style="color:#2b7a2b;text-decoration:none;">iyadiplanningsolutions.com</a></p>
             </div>
           </div>
         `,
